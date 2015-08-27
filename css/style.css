@@ -1,11 +1,15 @@
-.focus {
-    color: #E7AD52;
-}
-
 .success {
     color: greenyellow;
 }
 
 .alert {
     color: red;
+}
+
+.reveal a {
+    color: green;
+}
+
+.reveal a:hover {
+    color: grey;
 }
