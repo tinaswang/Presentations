@@ -124,6 +124,38 @@
                     <h2>Keep It Simple, Stupid</h2>
                 </section>
 
+                <section data-markdown>
+                    <script type="text/template">
+                      ## Refactoring: Replace Nested Conditional with Guard Clauses
+
+                      ```c
+                      double getPayAmount() {
+                        double result;
+                        if (_isDead) result = deadAmount();
+                        else {
+                          if (_isSeparated) result = separatedAmount();
+                          else {
+                            if (_isRetired) result = retiredAmount();
+                            else result = normalPayAmount();
+                          };
+                        }
+                        return result;
+                      };
+                      ```
+
+                      ```c
+                      double getPayAmount() {
+                        if (_isDead) return deadAmount();
+                        if (_isSeparated) return separatedAmount();
+                        if (_isRetired) return retiredAmount();
+                        return normalPayAmount();
+                      };
+                      ```
+
+                      See : [Replace Nested Conditional with Guard Clauses](http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html)
+                    </script>
+                </section>
+
                 <section>
                     <h2>Fat Models, Helper Modules, Thin Views, Stupid Templates</h2>
                     <ul>
