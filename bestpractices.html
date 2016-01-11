@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Template</title>
+    <title>Software Engineering Best Practices</title>
 
     <meta name="description" content="Django Best Practices Presentation">
     <meta name="author" content="Abdullah Cetin CAVDAR">
@@ -43,7 +43,7 @@
 
         <header class="left" style="position: absolute;top: 50px; left: 100px; z-index:500;"></header>
         <header class="bottom" style="position: absolute; bottom: 50px; width: 100%; text-align: center;"></header>
-
+        <!-- Title -->
         <div class="slides">
             <section data-state="headleft">
                 <style>
@@ -57,10 +57,10 @@
                     }
                 </style>
 
-                <h1>Clean Code in 5 minutes</h1>
-
+                <h2>(A few) Software Engineering Best Practices</h2>
+                <br/>
+                <br/>
                 <h3>January, 2015</h3>
-
                 <p>
                     <a href="http://ricleal.github.io" target="_blank">Ricardo M. Ferraz Leal</a>
                 </p>
@@ -68,94 +68,559 @@
                     <a href="mailto:ferrazlealrm@ornl.gov" target="_blank">ferrazlealrm@ornl.gov</a>
                 </p>
             </section>
-
+            <!-- Content -->
             <section>
+
                 <section>
-                    <h2>SOLID Principles</h2>
-                </section>
-                <section>
-                    <h2>The Importance of...</h2>
+                    <h2>Curiosities....</h2>
                     <ul>
-                        <li class="fragment"> Avoid ....</li>
-                        <li class="fragment">roll-in 1</li>
-                        <li class="fragment">roll-in 2</li>
-                        <li class="fragment">roll-in 3</li>
-                    </ul>Title
-                </section>
-                <section>
-                    <h2>Benefits of Using EV</h2>
-                    <ul>
-                        <li class="fragment">
-                            Keeping secrets out of settings allows you to store every settings file in version control without hesitation. All of your Python code really should be stored in version control, including your settings
-                        </li>
-                        <li class="fragment">
-                            Instead of each developer maintaining an easily-outdated, copy-and-pasted version of the
-                            <span class="focus">local_settings.py.example</span> file for their own development purposes, everyone shares the same version-controlled
-                            <span class="focus">settings/local.py</span>
-                        </li>
-                        <li class="fragment">
-                            System administrators can rapidly deploy the project without having to modify files containing Python code
-                        </li>
-                        <li class="fragment">
-                            Most platforms-as-a-service recommend the use of environment variables for configuration and have built-in features for setting and managing them
-                        </li>
+                        <li class="fragment">1 in 6 IT projects have an average cost overrun of 200% and a schedule overrun of 70%. </li>
+                        <li class="fragment">75% of IT executives believe their projects are "doomed from the start".</li>
+                        <li class="fragment">~30% of all projects were successfully completed on time and on budget over 2013.</li>
+                        <li class="fragment">18% of software projects fail: No value at all</li>
                     </ul>
                 </section>
                 <section>
-                    <p class="fragment grow">grow</p>
-                    <p class="fragment shrink">shrink</p>
-                    <p class="fragment fade-out">fade-out</p>
-                    <p class="fragment current-visible">visible only once</p>
-                    <p class="fragment highlight-current-blue">blue only once</p>
-                    <p class="fragment highlight-red">highlight-red</p>
-                    <p class="fragment highlight-green">highlight-green</p>
-                    <p class="fragment highlight-blue">highlight-blue</p>
+                    <h2>Most common causes for software failures:</h2>
+                    <p class="fragment">Lack of user participation</p>
+                    <p class="fragment">Poor communication among customers, developers, and users</p>
+                    <p class="fragment">Sloppy development practices</p>
+                    <p class="fragment">Vague, ambiguous, incomplete requirements.</p>
+                </section>
+                <section>
+                    <h2>A few interesting findings:</h2>
+                    <p class="fragment">Programmer: -- It is hard to figure out what needs to be built</p>
+                    <p class="fragment">Not enough attention is paid to design</p>
+                    <p class="fragment">Countless defects are injected which are only found after developers thought they were ready to ship.</p>
+                    <p class="fragment">Schedules are slipped to fix defects</p>
+                    <p class="fragment">Many projects end up being cancelled as their business cases are no longer valid</p>
+                    <p class="fragment">Or the software couldn't be made to work reliably enough.</p>
+                </section>
+                <section>
+                    <h2>Of software projects that do deliver:</h2>
+                    <p class="fragment">On average, for every 1 dollar spent on development, 4 dollars are spent on maintenance!</p>
+                    <p class="fragment">One approach to controlling software maintenance costs is the utilization of software metrics (e.g. complexity) during the development phase.</p>
+                    <p class="fragment">The long-term effect of high complexity is that the software will gradually degrade to a state whereby its maintenance is too costly or impossible.</p>
                 </section>
             </section>
 
             <section>
                 <section>
-                    <h2>Core Concepts</h2>
+                    <h2>Software degradation</h2>
+                    <h3>Top Causes:</h3>
                 </section>
-
                 <section>
-                    <h1>KISS</h1>
-                    <h2>Keep It Simple, Stupid</h2>
+                    <h3>Rigidity</h3>
+                    <p>
+                        The system is hard to change:
+                        <br/> Every change forces many other changes to other parts of the system.
+                        <br/> Changes propagate via dependencies to other modules
+                    </p>
                 </section>
+                <section>
+                    <h3>Fragility</h3>
+                    <p>
+                        Changes cause the system to break in places that have no conceptual relationship to the part that was changed.
+                        <br/> Fixing the problems causes new problems...
+                    </p>
+                </section>
+                <section>
+                    <h3>Immobility</h3>
+                    <p>
+                        It is hard to disentangle the system into components that can be reused in the other systems.
+                    </p>
+                </section>
+                <section>
+                    <h3>Viscosity</h3>
+                    <p>
+                        Doing things right is harder than doing things wrong...
+                    </p>
+                    <p>
+                        Telltale signs: When a change is needed, you are tempted to hack rather than to preserve the original design.
+                    </p>
+                </section>
+                <section>
+                    <h3>Needless Complexity</h3>
+                    <p>
+                        The design contains infrastructure that adds no direct benefit.
+                        <br/> Too much anticipation of future needs...
+                    </p>
+                </section>
+                <section>
+                    <h3>Needless Repetition</h3>
+                    <p>
+                        The design contains repeating structures that could be unified under a single abstraction.
+                        <br/> The same code appears over and The same code appears over and over again....
+                    </p>
+                </section>
+                <section>
+                    <h3>Opacity</h3>
+                    <p>
+                        It is hard to read and understand. It does not express its intent well...
+                    </p>
+                </section>
+            </section>
 
+            <section>
+                <section>
+                    <h1>SOLID Principles</h1>
+                </section>
                 <section data-markdown>
                     <script type="text/template">
-                        ## Refactoring: Replace Nested Conditional with Guard Clauses ```c double getPayAmount() { double result; if (_isDead) result = deadAmount(); else { if (_isSeparated) result = separatedAmount(); else { if (_isRetired) result = retiredAmount(); else result
-                        = normalPayAmount(); }; } return result; }; ``` ```c double getPayAmount() { if (_isDead) return deadAmount(); if (_isSeparated) return separatedAmount(); if (_isRetired) return retiredAmount(); return normalPayAmount(); }; ```
-                        See : [Replace Nested Conditional with Guard Clauses](http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html)
+                        - **S**ingle responsibility principle - **A class should have only a single responsibility**. - **O**pen/closed principle - "Software entities should be open for extension, but closed for modification". - **L**iskov substitution principle - "Subjects
+                        in a program should be replaceable with instances of their subtypes without altering the correctness of that program". I.e, derived classes just extend without replacing the functionality of old classes. - **I**nterface segregation
+                        principle - No client should be forced to depend on methods it does not use: **use small interfaces** (by splitting large ones...)! - **D**ependency inversion principle - Changes are risky, and by depending on a concept instead
+                        of on an implementation, you reduce the need for change at call sites.
+
                     </script>
                 </section>
-
                 <section>
-                    <h2>Fat Models, Helper Modules, Thin Views, Stupid Templates</h2>
+                    <h3>Single responsibility principle</h3>
+                    <p>
+                        Every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.
+                    </p>
+                    <img data-src="markdown/BestPractices/img/classAB.png" />
+                    <img data-src="markdown/BestPractices/img/AandBResponsilibities.png" />
+                </section>
+                <section>
+                    <h3>Open/closed principle</h3>
+                    <p>
+                        "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification"; that is, such an entity can allow its behaviour to be extended without modifying its source code
+                    </p>
+                    <img data-src="markdown/BestPractices/img/Notextensible.png" />
+                    <img data-src="markdown/BestPractices/img/Extensible.png" />
+                </section>
+                <section>
+                    <h3>Liskov substitution principle</h3>
+                    <p>
+                        "Subjects in a program should be replaceable with instances of their subtypes without altering the correctness of that program". I.e, derived classes just extend without replacing the functionality of old classes.
+                        <br/> That is, a user of a base class should continue to function properly if a derivative of that base class is passed to it.
+                    </p>
+                    <img data-src="markdown/BestPractices/img/LSP.png" />
+
+                </section>
+                <section>
+                    <h3>Interface segregation principle</h3>
+                    <p>
+                        The essence of the principle is quite simple. If you have a class that has several clients, rather than loading the class with all the methods that the clients need, create specific interfaces for each client and multiply inherit them into the class.
+                    </p>
+                    <img data-src="markdown/BestPractices/img/ISP1.png" />
+                    <img data-src="markdown/BestPractices/img/ISP2.png" />
+                </section>
+                <section>
+                    <h3>Dependency inversion principle</h3>
+                    <p>
+                        Dependency Inversion is the strategy of depending upon interfaces or abstract functions and classes, rather than upon concrete functions and classes. This principle is the enabling force behind component design, COM, CORBA, EJB, etc.
+                        <br/> Depending upon Abstractions.
+                        <br/> The implication of this principle is quite simple. Every dependency in the design should target an interface, or an abstract class. No dependency should target a concrete class.
+                    </p>
+                    <img data-src="markdown/BestPractices/img/DIP.png" />
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Code Complexity</h1>
+                    <blockquote>
+                        Managing complexity is the most important technical topic in software development.
+                        <br/> – Steve McConnell in Code Complete.
+                    </blockquote>
                     <ul>
-                        <li class="fragment">Put more logic into anything but views and templates</li>
-                        <li class="fragment">Template tags and filters should contain the minimum logic possible
+                        <li>
+                            Several Studies have found a positive correlation between cyclomatic complexity and defects:
+                        </li>
+                        <li>
+                            Methods that have the highest complexity tend to also contain the most defects.
+                        </li>
+                        <li>
+                            <strong>Note:</strong> Correlation between LOC and defects has not been proven yet!
                         </li>
                     </ul>
                 </section>
-
                 <section>
-                    <h2>Start With Django by Default</h2>
+                    <h3>Handling Code complexity</h3>
+                    <blockquote>
+                        Complexity is reduced by dividing a system into subsystems that are ideally independent.
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>Desirable characteristics of Software:</h3>
                     <ul>
-                        <li class="fragment">If we run into obstacles, we explore all possibilities before replacing core Django components
+                        <li>Simple</li>
+                        <li>Loosely-Coupled</li>
+                        <li>Extensible</li>
+                        <li>Reusable</li>
+                        <li>Stratified</li>
+                        <li>Standardized</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>How do you deal with complexity?</h2>
+                    <p>Write
+                        <strong>shy code</strong>:</p>
+                    <ul>
+                        <li>Don't reveal yourself to others.</li>
+                        <li>Don't interact with too many people.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Abstraction:</h1>
+
+                    <ul>
+                        <li>Ignore irrelevant details.</li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h2>Encapsulate for easier understanding</h2>
+
+                    <ul>
+                        <li>Identify and isolate areas likely to change:
+                            <ul>
+                                <li>Hiding sources of change so its effects are localized: e.g. bad design or construction, or data-size constraints.</li>
+                            </ul>
                         </li>
                     </ul>
                 </section>
-                <section style="top: 45.5px; display: block;" class="present">
-                    <h2>Pretty Code</h2>
+                <section>
+                    <h3>Keep coupling loose:</h3>
+
+                    <ul>
+                        <li>Don't use semantic knowledge from other module's inner workings!</li>
+                        <li>Law of Demeter (LoD) or principle of least knowledge (next).</li>
+                        <li>
+                            <pre>
+                                <code>ws.getRun().getGoniometer().getEulerAngles('YZY')</code>
+                            </pre>
+                        </li>
+                    </ul>
+                    <p>Design patterns provide vocabulary for efficient communication, and embody accumulated wisdom over years.
+                        <strong>DO NOT overuse them!!!</strong>
+                    </p>
+                </section>
+                <section>
+                    <h3>Aim for:</h3>
+
+                    <ul>
+                        <li>Strong cohesion:
+                            <ul>
+                                <li>Related code from the same module/class should be bound together as far as possible.</li>
+                            </ul>
+                        </li>
+                        <li>Low coupling:
+                            <ul>
+                                <li>All modules should be independent as far as possible</li>
+                            </ul>
+                        </li>
+                        <li>DbC: use preconditions and postconditions</li>
+                        <li>Design for test</li>
+                        <li>Write code for others, not for you!</li>
+                        <li>Keep design modular.</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Meta-Programming</h1>
+                    <blockquote>
+                        <p>Put abstractions in code, details in metadata</p>
+                    </blockquote>
+                </section>
+                <section>
+                    <p>Example: If generating files
+                        <strong>DO NOT</strong> put tags (e.g. XML) in the code!</p>
+
+                    <p>For Python, use: Django template language (DTL), Jinja2, etc...</p>
+
                     <pre>
-                        <code data-trim="" contenteditable="" class="hljs javascript">
-                            function linkify( selector ) { if( supports3DTransforms ) { var nodes = document.querySelectorAll( selector ); for( var i = 0, len = nodes.length; i
-                            < len; i++ ) { var node=n odes[i]; if( !node.className ) { node.className +=' roll' ; } } } } </code>
+                        <code>
+ws = CropWorkspace({{data.ws_name}}, XMin={{data.xmin}}, XMax={{data.xmax}})
+ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
+{% for file in data.files %}
+    ws_{{loop.index}} = Load({{file}})
+{% endfor %}
+                        </code>
                     </pre>
-                    <p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
                 </section>
+
+            </section>
+            <section>
+                <section>
+                    <h1>Good Practices for Functions</h1>
+                </section>
+                <section>
+                    <h3>Design by Contract</h3>
+
+                    <ul>
+                    <li>What does contract expect - <code>@precondition</code></li>
+                    <li>What does contract guarantee? - <code>@postcondition</code></li>
+                    <li>What does contract maintain? - <code>@invariant</code></li>
+                    </ul>
+
+                    <p>It is the caller's responsibility to make sure the pre-condition is met.</p>
+                </section>
+                <section>
+                    <h3>PEP 0316 - Programming by Contract for Python</h3>
+
+                    <p><em>Status:    Deferred</em></p>
+
+                    <h3>Alternatives:</h3>
+
+                    <ul>
+                    <li>PyContract</li>
+                    <li>PyDBC</li>
+                    <li>decontractors</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>DbC in Python</h3>
+
+                    <pre>
+                        <code>
+from decontractors import *
+
+@Precondition(lambda: x > 0 and y > 0)
+@Postcondition(lambda: __return__ == (x + y))
+def positive_nonzero_addition(x, y):
+    # Try changing the expression to return something else
+    return x + y
+
+# Won't work if at least one parameter is negative or zero
+print positive_nonzero_addition(4, 1)
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h3>DbC in Python: Assertions do (part of) the job!</h3>
+                    <pre>
+                        <code>
+def positive_nonzero_addition(x, y):
+    assert x > 0, 'x must be positive!'
+    assert y > 0, 'y must be positive!'
+    return x + y
+
+print positive_nonzero_addition(4, 1)
+print positive_nonzero_addition(4, -1)
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+python -O 'filename' # Turns assertions off!
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Law of Demeter</h2>
+
+                    <p>3 principles:</p>
+
+                    <ul>
+                    <li>Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.</li>
+                    <li>Each unit should only talk to its friends; don't talk to strangers.</li>
+                    <li>Only talk to your immediate friends.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Law of Demeter: Functions</h3>
+
+                    <p>The Law of Demeter for functions states that any method of an object should call only methods belong to:</p>
+                    <pre>
+                        <code>
+class Demeter {
+private:
+  A *a;
+  int func();
+public:
+  void example(B& b);
+}
+void Demeter::example(B& b) {
+  C c;
+  // itself
+  int f = func();
+  // any parameters that were passed in to the method
+  b.invert();
+  a = new A();
+  // any objects created
+  a->setActive();
+  // any directly held component objects
+  c.print();
+}
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h2>Law of Demeter: Cons</h2>
+                    <p>The cost:</p>
+
+                    <blockquote>
+                      <p>You will be writing a large number of wrapper methods that simply forward the request on to a delegate.</p>
+
+                    <p>These wrapper methods will impose both a runtime cost and a space overhead, which may be significant—even prohibitive—in some applications.</p>
+                    </blockquote>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>To start today</h1>
+                </section>
+                <section>
+                    <h3>Let's KISS* for now.</h3>
+                    <p><strong>Plain English does the job:</strong></p>
+                    <ul>
+                    <li>Precondition:
+                    <ul><li>What are valid parameters (ranges, types, etc)?</li></ul></li>
+                    <li>Postcondition
+                    <ul><li>What is supposed to be returned</li></ul></li>
+                    <li>Invariants or Variants(?)
+                    <ul><li>Any side effects I should be aware???</li></ul></li>
+                    <li>Use <code>assertions</code> in the test/development environment.</li>
+                    </ul>
+                    <p>[*]: "Keep it simple, stupid"</p>
+                </section>
+                <section>
+                    <h3>In addition:</h3>
+                    <ul>
+                    <li>Small functions (screen size maximum!)</li>
+                    <li>Write function intent</li>
+                    <li>Explain any choices made</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>To start today:</h2>
+                    <ul>
+                    <li>Limit function size: VT100 size (24x80)?
+                    <ul><li>Design by contract (at least Pre conditions!)</li></ul></li>
+                    <li>Function intent (Not what it does!)</li>
+                    <li>Choices made (i.e. why algorithm X and not Y)</li>
+                    <li>Limit Conditionals</li>
+                    <li>Limit nested Cycles and nested Conditionals</li>
+                    </ul>
+                    <p>Use <em>Code Complexity</em> tools.</p>
+                </section>
+                <section>
+                    <h3>Replace Conditional statements with polymorphism:</h3>
+
+                    <ul>
+                    <li><a href="https://github.com/ricleal/PythonCode/tree/master/src/Design">Python factories</a></li>
+                    <li>C++:
+                    <ul><li><a href="https://github.com/ricleal/CppTests/blob/master/src/oop/non_oop.cpp">Non OOP</a></li>
+                    <li><a href="https://github.com/ricleal/CppTests/blob/master/src/oop/oop.cpp">OOP</a></li></ul></li>
+                    </ul>
+
+                    <p>See: <a href="http://www.refactoring.com/catalog/replaceConditionalWithPolymorphism.html">Replace Conditional with Polymorphism</a></p>
+                </section>
+                <section>
+                    <h3>Python: Stupid simple example</h3>
+
+                    <p>
+                        Regular conditional:
+                    </p>
+                    <pre>
+                        <code>
+if extension == ".bat":
+  doBat()
+else if extension == ".sh":
+  doSh()
+(.....)
+                        </code>
+                    </pre>
+                    <p>
+                        Cleaner (?):
+                    </p>
+                    <pre>
+                        <code>
+doExtensions = {
+  ".bat" : doBat,
+  ".sh" : doSh
+}
+doExtensions[extension]()
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h3>Refactoring: Replace Nested Conditional with Guard Clauses</h3>
+                </section>
+                <section>
+                    <p>
+                        Before:
+                    </p>
+                    <pre>
+                        <code>
+double getPayAmount() {
+  double result;
+  if (_isDead) result = deadAmount();
+  else {
+    if (_isSeparated) result = separatedAmount();
+    else {
+      if (_isRetired) result = retiredAmount();
+      else result = normalPayAmount();
+    };
+  }
+  return result;
+};
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <p>
+                        After:
+                    </p>
+                    <pre>
+                        <code>
+double getPayAmount() {
+  if (_isDead) return deadAmount();
+  if (_isSeparated) return separatedAmount();
+  if (_isRetired) return retiredAmount();
+  return normalPayAmount();
+};
+                        </code>
+                        <p>See : <a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></p>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>
+<h1>References</h1>
+                </section>
+                <section>
+                    <h2>Books</h2>
+
+                    <ul>
+                    <li><a href="http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670">Code Complete: A Practical Handbook of Software Construction, 2nd Edition</a></li>
+                    <li><a href="http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X">The Pragmatic Programmer: From Journeyman to Master</a></li>
+                    <li><a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code: A Handbook of Agile Software Craftsmanship</a>.</li>
+                    <li><a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052">Working Effectively with Legacy Code</a></li>
+                    <li><a href="http://www.amazon.com/gp/product/0201485672?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0201485672">Refactoring: Improving the Design of Existing Code</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Notes:</h2>
+
+                    <ul>
+                    <li><a href="https://github.com/mgp/book-notes/blob/master/code-complete.markdown">Code Complete Notes</a></li>
+                    <li><a href="https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design">S.O.L.I.D: The First 5 Principles of Object Oriented Design</a></li>
+                    <li><a href="http://martinfowler.com/articles/injection.html">Inversion of Control Containers and the Dependency Injection pattern</a></li>
+                    <li><a href="http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf">Design Patterns Card</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>SOLID</h2>
+
+                    <ul>
+                    <li><a href="http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf">Design Principles and Design Patterns</a></li>
+                    <li><a href="http://www.objectmentor.com/resources/articles/srp.pdf">SRP</a></li>
+                    <li><a href="http://www.objectmentor.com/resources/articles/ocp.pdf">OCP</a></li>
+                    <li><a href="http://www.objectmentor.com/resources/articles/lsp.pdf">LSP</a></li>
+                    <li><a href="http://www.objectmentor.com/resources/articles/isp.pdf">ISP</a></li>
+                    <li><a href="http://www.objectmentor.com/resources/articles/dip.pdf">DIP</a></li>
+                    </ul>
+
+                </section>
+                <section>
+
+                </section>
+
             </section>
 
         </div>
