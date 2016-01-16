@@ -115,11 +115,11 @@
         <section>
           <h2>So... What to do?</h2>
           <p class="fragment">Better design... (next)</p>
-          <p class="fragment">Software design complexity is difficult to assess without using complexity metrics and measures.</p>
+          <p class="fragment"><span class="em2">Software design complexity</span> is difficult to assess without using complexity metrics and measures.</p>
           <p class="fragment">One approach to controlling software maintenance costs is the
             <span class="em2">utilization of software metrics</span> during the development phase.</p>
           <p class="fragment"></p>
-          <p class="fragment">The long-term effect of high complexity is that the software will gradually degrade to a state whereby its maintenance is too costly or impossible.</p>
+          <p class="fragment">The <span class="em2">long-term effect</span> of high complexity is that the software will gradually degrade to a state whereby its maintenance is <span class="em2">too costly or impossible</span>.</p>
           <p class="fragment"></p>
         </section>
       </section>
@@ -133,7 +133,7 @@
           <h3>Rigidity</h3>
           <p>
             The system is hard to change:
-            <br/> Every change forces many other changes to other parts of the system.
+            <br/> <span class="em1">Every change forces many other changes to other parts of the system</span>.
             <br/> Changes propagate via dependencies to other modules
           </p>
         </section>
@@ -141,19 +141,19 @@
           <h3>Fragility</h3>
           <p>
             Changes cause the system to break in places that have no conceptual relationship to the part that was changed.
-            <br/> Fixing the problems causes new problems...
+            <br/> <span class="em1">Fixing the problems causes new problems...</span>
           </p>
         </section>
         <section>
           <h3>Immobility</h3>
           <p>
-            It is hard to disentangle the system into components that can be reused in the other systems.
+            <span class="em1">It is hard to disentangle the system into components that can be reused in the other systems</span>.
           </p>
         </section>
         <section>
           <h3>Viscosity</h3>
           <p>
-            Doing things right is harder than doing things wrong...
+            <span class="em1">Doing things right is harder than doing things wrong...</span>
           </p>
           <p>
             Telltale signs: When a change is needed, you are tempted to hack rather than to preserve the original design.
@@ -163,20 +163,22 @@
           <h3>Needless Complexity</h3>
           <p>
             The design contains infrastructure that adds no direct benefit.
-            <br/> Too much anticipation of future needs...
+            <br/> <span class="em1">Too much anticipation of future needs...</span>
           </p>
         </section>
         <section>
           <h3>Needless Repetition</h3>
           <p>
             The design contains repeating structures that could be unified under a single abstraction.
-            <br/> The same code appears over and The same code appears over and over again....
+            <br/> <span class="em1">The same code appears over and over again....</span>
+            <br/> Too much copy-paste...
           </p>
         </section>
         <section>
           <h3>Opacity</h3>
           <p>
-            It is hard to read and understand. It does not express its intent well...
+            <span class="em1">It is hard to read and understand</span>.
+            <br/> It does not express its intent well...
           </p>
         </section>
         <section>
@@ -387,10 +389,8 @@
           </ul>
           <P>This clearly violates the LoD:</P>
           <pre>
-            <code>
-
+            <code class='python'>
               ws.getRun().getGoniometer().getEulerAngles('YZY')
-
             </code>
           </pre>
           <p>Design patterns provide vocabulary for efficient communication, and embody accumulated wisdom over years.
@@ -432,8 +432,12 @@
           <p>For Python, use: Django template language (DTL), Jinja2, etc...</p>
 
           <pre>
-            <code>
-              ws = CropWorkspace({{data.ws_name}}, XMin={{data.xmin}}, XMax={{data.xmax}}) ws = Power({{data.ws_name}}, Exponent={{data.exponent}}) {% for file in data.files %} ws_{{loop.index}} = Load({{file}}) {% endfor %}
+            <code class='mustache'>
+ws = CropWorkspace({{data.ws_name}}, XMin={{data.xmin}}, XMax={{data.xmax}})
+ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
+{% for file in data.files %}
+  ws_{{loop.index}} = Load({{file}})
+{% endfor %}
             </code>
           </pre>
         </section>
@@ -478,9 +482,14 @@
           <h3>DbC in Python</h3>
 
           <pre>
-            <code>
-              from decontractors import * @Precondition(lambda: x > 0 and y > 0) @Postcondition(lambda: __return__ == (x + y)) def positive_nonzero_addition(x, y): # Try changing the expression to return something else return x + y # Won't work if at least one parameter
-              is negative or zero print positive_nonzero_addition(4, 1)
+            <code class="python">
+              from decontractors import *
+              @Precondition(lambda: x > 0 and y > 0)
+              @Postcondition(lambda: __return__ == (x + y))
+              def positive_nonzero_addition(x, y):
+                # Try changing the expression to return something else
+                return x + y # Won't work if at least one parameter is negative or zero
+              print positive_nonzero_addition(4, 1)
             </code>
           </pre>
         </section>
@@ -488,7 +497,10 @@
           <h3>DbC in Python: Assertions do (part of) the job!</h3>
           <pre>
             <code class="python">
-              def positive_nonzero_addition(x, y): assert x > 0, 'x must be positive!' assert y > 0, 'y must be positive!' return x + y print positive_nonzero_addition(4, 1) print positive_nonzero_addition(4, -1)
+              def positive_nonzero_addition(x, y):
+                assert x > 0, 'x must be positive!' assert y > 0, 'y must be positive!'
+                return x + y print positive_nonzero_addition(4, 1)
+              print positive_nonzero_addition(4, -1)
             </code>
           </pre>
           <pre>
@@ -513,11 +525,29 @@
 
           <p>The Law of Demeter for functions states that any method of an object should call only methods belong to:</p>
           <pre>
-            <code>
-              class Demeter { private: A *a; int func(); public: void example(B& b); } void Demeter::example(B& b) { C c; // itself int f = func(); // any parameters that were passed in to the method b.invert(); a = new A(); // any objects created a->setActive(); //
-              any directly held component objects c.print(); }
+            <code class="cpp">
+              class Demeter {
+                private: A *a;
+                int func();
+                public:
+                  void example(B& b);
+                }
+                void Demeter::example(B& b) {
+                  C c; // itself
+                  int f = func(); // any parameters that were passed in to the method
+                  b.invert();
+                  a = new A(); // any objects created
+                  a->setActive(); //any directly held component objects
+                  c.print();
+                }
             </code>
           </pre>
+        </section>
+        <section>
+          <img data-src="markdown/BestPractices/img/LoD-viol-UML.jpg" />
+        </section>
+        <section>
+          <img data-src="markdown/BestPractices/img/LoD-follow.jpg" />
         </section>
         <section>
           <h2>Law of Demeter: Cons</h2>
