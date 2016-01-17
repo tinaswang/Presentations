@@ -87,23 +87,23 @@
             <li class="fragment">1 in 6 IT projects have an average cost overrun of 200% and a schedule overrun of 70%. </li>
             <li class="fragment">75% of IT executives believe their projects are "doomed from the start".</li>
             <li class="fragment">~30% of all projects were successfully completed on time and on budget over 2013.</li>
-            <li class="fragment">18% of software projects fail: No value at all</li>
+            <li class="fragment">18% of software projects fail: No value at all!</li>
           </ul>
         </section>
         <section>
           <h2>Most common causes for software failures:</h2>
-          <p class="fragment">Lack of user participation</p>
-          <p class="fragment">Poor communication among customers, developers, and users</p>
-          <p class="fragment">Sloppy development practices</p>
+          <p class="fragment">Lack of user participation.</p>
+          <p class="fragment">Poor communication among customers, developers, and users.</p>
+          <p class="fragment">Sloppy development practices.</p>
           <p class="fragment">Vague, ambiguous, incomplete requirements.</p>
         </section>
         <section>
           <h2>A few interesting findings:</h2>
-          <p class="fragment">"<i>It is hard to figure out what needs to be built</i>"</p>
-          <p class="fragment">Not enough attention is paid to design</p>
+          <p class="fragment em0">"<i>It is hard to figure out what needs to be built</i>"</p>
+          <p class="fragment">"<i>Not enough attention is paid to design</i>"</p>
           <p class="fragment">Countless defects are injected which are only found after developers thought they were ready to ship.</p>
-          <p class="fragment">Schedules are slipped to fix defects</p>
-          <p class="fragment">Many projects end up being cancelled as their business cases are no longer valid</p>
+          <p class="fragment em1">Then, schedules are slipped to fix those defects...</p>
+          <p class="fragment">Many projects end up being cancelled as their business cases are no longer valid...</p>
           <p class="fragment">Or the software couldn't be made to work reliably enough.</p>
           <aside class="notes">
             Developers point of view
@@ -111,17 +111,17 @@
         </section>
         <section>
           <h2>Among the software projects that do deliver:</h2>
-          <h3 class="em5">On average, for every 1 dollar spent on development, 4 dollars are spent on maintenance!</h3>
+          <h3 class="em3">On average, for every 1 dollar spent on development, 4 dollars are spent on maintenance!</h3>
         </section>
         <section>
           <h2>So... What to do?</h2>
-          <p class="fragment">Better design... (next)</p>
-          <p class="fragment"><span class="em2">Software design complexity</span> is difficult to assess without using complexity metrics and measures.</p>
+          <p class="fragment"><span class="em2">Think first</span>: Better design... (next)</p>
+          <p class="fragment">For large projects, <span class="em2">Software design complexity</span> is difficult to assess without using complexity metrics and measures.</p>
           <p class="fragment">One approach to controlling software maintenance costs is the
             <span class="em2">utilization of software metrics</span> during the development phase.</p>
-          <p class="fragment"></p>
+          <blockquote>
           <p class="fragment">The <span class="em2">long-term effect</span> of high complexity is that the software will gradually degrade to a state whereby its maintenance is <span class="em2">too costly or impossible</span>.</p>
-          <p class="fragment"></p>
+          </blockquote>
         </section>
       </section>
 
@@ -166,16 +166,16 @@
             The design contains infrastructure that adds no direct benefit.
             <br/> <span class="em1">Too much anticipation of future needs...</span>
           </p>
-          <p>
-            YAGNI principle - You aren't gonna need it
-          </p>
+          <u>
+            YAGNI principle - You aren't gonna need it!
+          </u>
         </section>
         <section>
           <h3>Needless Repetition</h3>
           <p>
             The design contains repeating structures that could be unified under a single abstraction.
             <br/> <span class="em1">The same code appears over and over again....</span>
-            <br/> Too much copy-paste...
+            <br/> <u>Too much copy-paste...</u>
           </p>
         </section>
         <section>
@@ -259,8 +259,7 @@
         <section>
           <h3>Dependency inversion principle</h3>
           <p>
-            Dependency Inversion is the strategy of depending upon interfaces or abstract functions and classes, rather than upon concrete functions and classes. This principle is the enabling force behind component design, COM, CORBA, EJB, etc.
-            <br/> Depending upon Abstractions.
+            Depending upon Abstractions: Dependency Inversion is the strategy of depending upon interfaces or abstract functions and classes, rather than upon concrete functions and classes.
             <br/> The implication of this principle is quite simple. Every dependency in the design should target an interface, or an abstract class. No dependency should target a concrete class.
           </p>
           <div class="em2">
@@ -269,9 +268,9 @@
           <img data-src="markdown/BestPractices/img/DIP.png" />
         </section>
         <section>
-          <h3>Other principles</h3>
+          <h3>Package principles</h3>
           <ul>
-          <li class="fragment"><a href="http://social.technet.microsoft.com/wiki/contents/articles/18067.package-cohesion-principle.aspx">Principles of package cohesion </a>
+          <li class="fragment"><a href="http://social.technet.microsoft.com/wiki/contents/articles/18067.package-cohesion-principle.aspx">Package Cohesion Principles</a>
           <ol><li>Reuse-release equivalence principle (REP): "The Granule of reuse is the granule of release"</li>
           <li>Common-reuse principle (CRP): "Classes that aren't reused together should not be grouped together"</li>
           <li>Common-closure principle (CCP): "Classes that change together, belong together. "</li></ol></li>
@@ -293,7 +292,7 @@
           <li>Least Knowledge Principle (Law of Demeter).
           <ul>
             <li><code>my_television.front_panel.switches.power.on();</code></li>
-            <li><code>my_television.front_panel.power_up();</code></li>
+            <li><code>my_television.power_up();</code></li>
             </ul></li>
           <li>Favor Composition over Inheritance.</li>
           <li>Hollywood Principle: <a href="http://martinfowler.com/bliki/TellDontAsk.html">Tell-Don't-Ask</a>
@@ -409,14 +408,29 @@
           </ul>
         </section>
         <section>
+          <h3>Strong cohesion &amp; Low coupling</h3>
+          <ul>
+            <li class="fragment">Strong cohesion:
+              <ul>
+                <li>Related code from the same module/class should be bound together as far as possible.</li>
+              </ul>
+            </li>
+            <li class="fragment">Low coupling:
+              <ul>
+                <li>All modules should be independent as far as possible</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <!-- <section>
           <h3>Abstraction:</h3>
           <ul>
             <li>Ignore irrelevant details.</li>
           </ul>
 
-        </section>
+        </section> -->
         <section>
-          <h3>Encapsulate for easier understanding</h3>
+          <h3>Strong cohesion: Encapsulate for easier understanding</h3>
           <ul>
             <li>Identify and isolate areas likely to change:
               <ul>
@@ -426,7 +440,7 @@
           </ul>
         </section>
         <section>
-          <h3>Keep coupling loose:</h3>
+          <h3>Keeping coupling loose:</h3>
           <ul class="fragment">
             <li>Don't use semantic knowledge from other module's inner workings!</li>
             <li>Law of Demeter (LoD) or principle of least knowledge (next).</li>
@@ -439,29 +453,9 @@
           </pre>
           <p class="fragment">Design patterns provide vocabulary for efficient communication, and embody accumulated wisdom over years.
             </p>
-            <P class="fragment em0">
-              <strong>However, DO NOT overuse them!!!</strong>
-            </P>
-
-        </section>
-        <section>
-          <h3>Aim for:</h3>
-          <ul>
-            <li class="fragment">Strong cohesion:
-              <ul>
-                <li>Related code from the same module/class should be bound together as far as possible.</li>
-              </ul>
-            </li>
-            <li class="fragment">Low coupling:
-              <ul>
-                <li>All modules should be independent as far as possible</li>
-              </ul>
-            </li>
-            <li class="fragment">DbC: use preconditions and postconditions</li>
-            <li class="fragment">Design for test</li>
-            <li class="fragment">Write code for others, not for you!</li>
-            <li class="fragment">Keep design modular.</li>
-          </ul>
+          <P class="fragment em0">
+            <strong>However, DO NOT overuse them!!!</strong>
+          </P>
         </section>
         <section>
           <h2>Meta-Programming</h2>
@@ -735,6 +729,7 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
             </ul>
             <li>Limit Conditionals</li>
             <li>Limit nested Cycles and nested Conditionals</li>
+            <li>Write code for others, not for you!</li>
           </ul>
           <p class="em0">Use
             <em>Code Complexity</em> tools.</p>
@@ -744,7 +739,7 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
           <ul>
             <li>Can we make Algorithms smaller?</li>
             <li>exec() should have few clean lines</li>
-            <li>Can we separate functionality in packages?</li>
+            <li>Can we separate functionality into independent packages?</li>
             <li>technique.facility.instrument?</li>
           </ul>
         </section>
@@ -764,7 +759,7 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
             <li><a href="http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X">The Pragmatic Programmer: From Journeyman to Master</a></li>
             <li><a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code: A Handbook of Agile Software Craftsmanship</a>.</li>
             <li><a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052">Working Effectively with Legacy Code</a></li>
-            <li><a href="http://www.amazon.com/gp/product/0201485672?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0201485672">Refactoring: Improving the Design of Existing Code</a></li>
+            <li><a href="http://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Technology-ebook/dp/B007WTFWJ6/">Refactoring: Improving the Design of Existing Code</a></li>
           </ul>
         </section>
         <section>
