@@ -70,7 +70,8 @@
           <h2>Agenda</h2>
           <ol>
             <li class="">Curiosities</li>
-            <li class="">Software degradation &amp; SOLID Principles.</li>
+            <li class="">Software degradation</li>
+            <li class="">Principles to OO Class Design</li>
             <li class="">Code Complexity</li>
             <li class="">Functions</li>
             <li class="">Some reading...</li>
@@ -126,8 +127,8 @@
 
       <section>
         <section>
-          <h2>Software degradation</h2>
-          <h3>Symptoms of Poor Design</h3>
+          <h1>Software degradation</h1>
+          <h3>Symptoms of Rotting Design </h3>
         </section>
         <section>
           <h3>Rigidity</h3>
@@ -165,6 +166,9 @@
             The design contains infrastructure that adds no direct benefit.
             <br/> <span class="em1">Too much anticipation of future needs...</span>
           </p>
+          <p>
+            YAGNI principle - You aren't gonna need it
+          </p>
         </section>
         <section>
           <h3>Needless Repetition</h3>
@@ -181,9 +185,11 @@
             <br/> It does not express its intent well...
           </p>
         </section>
+      </section>
+      <section>
         <section>
           <h1>SOLID</h1>
-          <h3>Principles to avoid bad Design</h3>
+          <h3>Principles to OO Class Design</h3>
           <blockquote>
             Documentation helps, but documentation is not the solution — simplicity is.
           </blockquote>
@@ -262,15 +268,50 @@
           </div>
           <img data-src="markdown/BestPractices/img/DIP.png" />
         </section>
+        <section>
+          <h3>Other principles</h3>
+          <ul>
+          <li class="fragment"><a href="http://social.technet.microsoft.com/wiki/contents/articles/18067.package-cohesion-principle.aspx">Principles of package cohesion </a>
+          <ol><li>Reuse-release equivalence principle (REP): "The Granule of reuse is the granule of release"</li>
+          <li>Common-reuse principle (CRP): "Classes that aren't reused together should not be grouped together"</li>
+          <li>Common-closure principle (CCP): "Classes that change together, belong together. "</li></ol></li>
+          <li class="fragment"><a href="http://social.technet.microsoft.com/wiki/contents/articles/18068.package-coupling-principles.aspx">Package Coupling Principles</a>
+
+          <ol><li>The Acyclic Dependencies Principle: "The dependencies between packages must not form cycles"</li>
+          <li>The Stable Dependencies Principle: "Depend in the direction of stability"</li>
+          <li>The Stable Abstractions Principle: "Stable packages should be abstract packages"</li></ol></li>
+          </ul>
+
+        </section>
+        <section>
+          <h3>And many more...</h3>
+          <ul>
+          <li>Program to Interface Not Implementation.</li>
+          <li>DRY - Don't Repeat Yourself.</li>
+          <li>Encapsulate What Varies.</li>
+          <li>Depend on Abstractions, Not Concrete classes.</li>
+          <li>Least Knowledge Principle (Law of Demeter).
+          <ul>
+            <li><code>my_television.front_panel.switches.power.on();</code></li>
+            <li><code>my_television.front_panel.power_up();</code></li>
+            </ul></li>
+          <li>Favor Composition over Inheritance.</li>
+          <li>Hollywood Principle: <a href="http://martinfowler.com/bliki/TellDontAsk.html">Tell-Don't-Ask</a>
+          <ul><li>Send commands to objects telling them what you want done!</li></ul></li>
+          <li><a href="http://social.technet.microsoft.com/wiki/contents/articles/18030.software-patterns-practices.aspx">Apply Design Pattern wherever possible</a></li>
+          <li>Strive for Loosely Coupled System.</li>
+          <li>KISS - Keep it Simple and Sweet / Stupid.</li>
+          </ul>
+        </section>
       </section>
       <section>
         <section>
           <h1>Code Complexity</h1>
-          <blockquote>
+          <blockquote class="fragment">
             Managing complexity is the most important technical topic in software development.
             <br/> – Steve McConnell in Code Complete.
           </blockquote>
-          <ul>
+          <ul  class="fragment">
             <P>
               Several Studies have found a positive correlation between cyclomatic complexity and defects:
               <BR/>
@@ -286,7 +327,7 @@
         <section>
           <h3>Complexity</h3>
           <p>Halstead's Complexity Measures</p>
-          <p>Cyclomatic Complexity Measures</p>
+          <p class="em1">Cyclomatic Complexity Measures</p>
           <p>Function Point</p>
         </section>
         <section>
@@ -326,17 +367,17 @@
         </section>
         <section>
           <h3>A few more (not so) interesting figures:</h3>
-          <p>
+          <p class="fragment">
             Functions
             <span class="em0">GetDetOffsetsMultiPeaks::fitSpectra</span> and
             <span class="em0">ReflectometryReductionOne::transmissonCorrection</span>
             have 14 parameters
           </p>
-          <p>
+          <p class="fragment">
             length(
             <span class="em0">DiffractionEventCalibrateDetectors::exec</span> ) == 304
           </p>
-          <p>
+          <p class="fragment">
             NLOC for
             <span class="em0">GenerateEventsFilter.cpp</span> == 1302
           </p>
@@ -346,7 +387,7 @@
           <blockquote>
             Complexity is reduced by dividing a system into subsystems that are ideally independent.
           </blockquote>
-          <blockquote>
+          <blockquote  class="fragment">
             <p>Write
               <strong>shy code</strong>:</p>
             <ul>
@@ -359,12 +400,12 @@
         <section>
           <h3>Desirable characteristics of Software:</h3>
           <ul>
-            <li>Simple</li>
-            <li>Loosely-Coupled</li>
-            <li>Extensible</li>
-            <li>Reusable</li>
-            <li>Stratified</li>
-            <li>Standardized</li>
+            <li class="fragment">Simple</li>
+            <li class="fragment">Loosely-Coupled</li>
+            <li class="fragment">Extensible</li>
+            <li class="fragment">Reusable</li>
+            <li class="fragment">Stratified</li>
+            <li class="fragment">Standardized</li>
           </ul>
         </section>
         <section>
@@ -386,39 +427,40 @@
         </section>
         <section>
           <h3>Keep coupling loose:</h3>
-          <ul>
+          <ul class="fragment">
             <li>Don't use semantic knowledge from other module's inner workings!</li>
             <li>Law of Demeter (LoD) or principle of least knowledge (next).</li>
           </ul>
-          <P>This clearly violates the LoD:</P>
-          <pre>
+          <P class="fragment">This clearly violates the LoD:</P>
+          <pre class="fragment">
             <code class='python'>
               ws.getRun().getGoniometer().getEulerAngles('YZY')
             </code>
           </pre>
-          <p>Design patterns provide vocabulary for efficient communication, and embody accumulated wisdom over years.
-            <div class="em0">
+          <p class="fragment">Design patterns provide vocabulary for efficient communication, and embody accumulated wisdom over years.
+            </p>
+            <P class="fragment em0">
               <strong>However, DO NOT overuse them!!!</strong>
-            </div>
-          </p>
+            </P>
+
         </section>
         <section>
           <h3>Aim for:</h3>
           <ul>
-            <li>Strong cohesion:
+            <li class="fragment">Strong cohesion:
               <ul>
                 <li>Related code from the same module/class should be bound together as far as possible.</li>
               </ul>
             </li>
-            <li>Low coupling:
+            <li class="fragment">Low coupling:
               <ul>
                 <li>All modules should be independent as far as possible</li>
               </ul>
             </li>
-            <li>DbC: use preconditions and postconditions</li>
-            <li>Design for test</li>
-            <li>Write code for others, not for you!</li>
-            <li>Keep design modular.</li>
+            <li class="fragment">DbC: use preconditions and postconditions</li>
+            <li class="fragment">Design for test</li>
+            <li class="fragment">Write code for others, not for you!</li>
+            <li class="fragment">Keep design modular.</li>
           </ul>
         </section>
         <section>
@@ -524,41 +566,48 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
           </ul>
         </section>
         <section>
-          <h3>Law of Demeter: Functions</h3>
-
-          <p>The Law of Demeter for functions states that any method of an object should call only methods belong to:</p>
-          <pre>
-            <code class="cpp">
-              class Demeter {
-                private: A *a;
-                int func();
-                public:
-                  void example(B& b);
-                }
-                void Demeter::example(B& b) {
-                  C c; // itself
-                  int f = func(); // any parameters that were passed in to the method
-                  b.invert();
-                  a = new A(); // any objects created
-                  a->setActive(); //any directly held component objects
-                  c.print();
-                }
-            </code>
-          </pre>
-        </section>
-        <section>
           <img data-src="markdown/BestPractices/img/LoD-viol-UML.jpg" />
         </section>
         <section>
           <img data-src="markdown/BestPractices/img/LoD-follow.jpg" />
         </section>
         <section>
+          <h3>Law of Demeter: Functions</h3>
+
+          <p>The Law of Demeter for functions states that any method of an object should call only methods belong to:</p>
+          <pre>
+            <code class="cpp">
+              class Demeter {
+                private:
+                  A *a;
+                  int func();
+                public:
+                  void example(B& b);
+              }
+
+              void Demeter::example(B& b) {
+                C c;
+                // itself
+                int f = func();
+                // any parameters that were passed in to the method
+                b.invert();
+                a = new A();
+                // any objects created
+                a->setActive();
+                //any directly held component objects
+                c.print();
+              }
+            </code>
+          </pre>
+        </section>
+        <section>
           <h2>Law of Demeter: Cons</h2>
           <p>The cost:</p>
 
-          <blockquote>
+          <blockquote class='fragment'>
             <p>You will be writing a large number of wrapper methods that simply forward the request on to a delegate.</p>
-
+          </blockquote>
+          <blockquote class='fragment'>
             <p>These wrapper methods will impose both a runtime cost and a space overhead, which may be significant—even prohibitive—in some applications.</p>
           </blockquote>
         </section>
@@ -566,28 +615,30 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
           <h1>To start today</h1>
         </section>
         <section>
-          <h3>Replace Conditional statements with polymorphism:</h3>
+          <h3>Replace Conditional with Polymorphism:</h3>
 
+          <img src="markdown/BestPractices/img/replace_conditional_with_polymorphism.gif"/>
+          <br/>
           <ul>
             <li><a href="https://github.com/ricleal/PythonCode/tree/master/src/Design">Python factories</a></li>
-            <li>C++:
-              <ul>
-                <li><a href="https://github.com/ricleal/CppTests/blob/master/src/oop/non_oop.cpp">Non OOP</a></li>
-                <li><a href="https://github.com/ricleal/CppTests/blob/master/src/oop/oop.cpp">OOP</a></li>
-              </ul>
+            <li>C++: <a href="https://github.com/ricleal/CppTests/blob/master/src/oop/non_oop.cpp">Non OOP</a> vs <a href="https://github.com/ricleal/CppTests/blob/master/src/oop/oop.cpp">OOP</a>
             </li>
           </ul>
 
           <p>See: <a href="http://www.refactoring.com/catalog/replaceConditionalWithPolymorphism.html">Replace Conditional with Polymorphism</a></p>
         </section>
         <section>
-          <h3>Python: (Stupid) Simple Example</h3>
+          <h3>Python: Simple Example</h3>
           <p>
             Regular conditional:
           </p>
           <pre>
             <code class="python">
-              if extension == ".bat": doBat() else if extension == ".sh": doSh() (.....)
+              if extension == ".bat":
+                doBat()
+              elif extension == ".sh":
+                doSh()
+              (.....)
             </code>
           </pre>
           <p>
@@ -595,7 +646,12 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
           </p>
           <pre>
             <code class="python">
-              doExtensions = { ".bat" : doBat, ".sh" : doSh } doExtensions[extension]()
+              doExtensions = {
+                ".bat" : doBat,
+                ".sh" : doSh,
+                (...)
+              }
+              doExtensions[extension]()
             </code>
           </pre>
         </section>
@@ -637,11 +693,12 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
                   return normalPayAmount();
               };
             </code>
-            <p>See : <a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></p>
-          </pre>
+            </pre>
+            <p> CCN is the same, but nesting depth is better!
+            <br/>See : <a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></p>
         </section>
         <section>
-          <h3>DbC: Let's KISS* for now.</h3>
+          <h3>DbC: Let's KISS for now.</h3>
           <p>
             <strong>Plain English does the job:</strong>
           </p>
@@ -664,7 +721,6 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
             <li>Use
               <code>assertions</code> in the test/development environment.</li>
           </ul>
-          <p>[*]: "Keep it simple, stupid"</p>
         </section>
         <section>
           <h2>To take home:</h2>
