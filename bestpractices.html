@@ -69,11 +69,11 @@
         <section>
           <h2>Agenda</h2>
           <ol>
-            <li class="">Curiosities</li>
-            <li class="">Software degradation</li>
-            <li class="">Principles to OO Class Design</li>
+            <li class="">Curiosities about IT projects</li>
+            <li class="">Software (Design) Degradation</li>
+            <li class="">Principles of OO Class Design</li>
             <li class="">Code Complexity</li>
-            <li class="">Functions</li>
+            <li class="">Making clear Functions</li>
             <li class="">Some reading...</li>
           </ol>
         </section>
@@ -84,10 +84,10 @@
         <section>
           <h2>Curiosities....</h2>
           <ul>
-            <li class="fragment">1 in 6 IT projects have an average cost overrun of 200% and a schedule overrun of 70%. </li>
-            <li class="fragment">75% of IT executives believe their projects are "doomed from the start".</li>
-            <li class="fragment">~30% of all projects were successfully completed on time and on budget over 2013.</li>
-            <li class="fragment">18% of software projects fail: No value at all!</li>
+            <li class="fragment">1/6 IT projects have an average cost overrun of 200% and a schedule overrun of 70%. </li>
+            <li class="fragment">3/4 IT executives believe their projects are "doomed from the start".</li>
+            <li class="fragment">1/3 IT projects were successfully completed on time and on budget over 2013.</li>
+            <li class="fragment">1/5 IT projects fail: <span class="em5">No value at all!</span></li>
           </ul>
         </section>
         <section>
@@ -128,7 +128,7 @@
       <section>
         <section>
           <h1>Software degradation</h1>
-          <h3>Symptoms of Rotting Design </h3>
+          <h3>Symptoms of Poor Design </h3>
         </section>
         <section>
           <h3>Rigidity</h3>
@@ -184,6 +184,62 @@
             <span class="em1">It is hard to read and understand</span>.
             <br/> It does not express its intent well...
           </p>
+        </section>
+      </section>
+      <section>
+        <section>
+            <h1>Caracteristics of Good Design</h1>
+        </section>
+        <section>
+            <h3>Minimal complexity:</h3>
+            <p>Avoid making <strong>clever</strong> designs. Clever designs are usually hard to understand. Keep it simple</p>
+        </section>
+        <section>
+            <h3>Ease of maintenance:</h3>
+            <p>It is easy to understand and make changes.</p>
+        </section>
+        <section>
+            <h3>Strong cohesion:</h3>
+            <p>Related code from the same module/class should be bound together as far as possible.</p>
+        </section>
+        <section>
+            <h3>Loose coupling:</h3>
+            <p>Loose coupling means designing so that you hold connections among different parts of a program to a minimum.</p>
+            <p>All modules should be independent as far as possible.</p>
+        </section>
+        <section>
+            <h3>Extensibility:</h3>
+            <p>You should be able to change a piece of the system without causing a huge impact together pieces of the system.</p>
+        </section>
+        <section>
+            <h3>Reusability:</h3>
+            <p>Less code duplication, more code reuse. Code can be reused in other systems.</p>
+        </section>
+        <section>
+            <h3>High Fan-In</h3>
+            <p>Refers to having a high number of classes that use a given class.</p>
+            <p>High fan-in implies that a system has been designed to make good use of utility classes at the lower levels in the system. E.g. Util classes.</p>
+        </section>
+        <section>
+            <h3>Low Fan-Out</h3>
+            <p>A given class should use a low-to-medium number of other classes.</p>
+            <p>Highfan-out (more than about seven) indicates a class uses a large number of other classes and may be overly complex.</p>
+        </section>
+        <section>
+            <h3>Portability</h3>
+            <p>A program can be run on lot of computers without complex configuration.</p>
+        </section>
+        <section>
+            <h3>Leanness</h3>
+            <p>No redundant modules/classes/functionalities.</p>
+        </section>
+        <section>
+            <h3>Stratification</h3>
+            <p>Try to keep the levels of decomposition stratified so you can view the system at any single level without dipping into other levels.</p>
+        </section>
+        <section>
+            <h3>Standard techniques</h3>
+            <p>Give the whole system a familiar feeling by using standardized, common approaches. E.g. Design Patterns.</p>
         </section>
       </section>
       <section>
@@ -268,39 +324,51 @@
           <img data-src="markdown/BestPractices/img/DIP.png" />
         </section>
         <section>
-          <h3>Package principles</h3>
-          <ul>
-          <li class="fragment"><a href="http://social.technet.microsoft.com/wiki/contents/articles/18067.package-cohesion-principle.aspx">Package Cohesion Principles</a>
-          <ol><li>Reuse-release equivalence principle (REP): "The Granule of reuse is the granule of release"</li>
-          <li>Common-reuse principle (CRP): "Classes that aren't reused together should not be grouped together"</li>
-          <li>Common-closure principle (CCP): "Classes that change together, belong together. "</li></ol></li>
-          <li class="fragment"><a href="http://social.technet.microsoft.com/wiki/contents/articles/18068.package-coupling-principles.aspx">Package Coupling Principles</a>
-
-          <ol><li>The Acyclic Dependencies Principle: "The dependencies between packages must not form cycles"</li>
-          <li>The Stable Dependencies Principle: "Depend in the direction of stability"</li>
-          <li>The Stable Abstractions Principle: "Stable packages should be abstract packages"</li></ol></li>
-          </ul>
-
+            <h3>Package principles</h3>
+            <ul>
+              <li class="fragment">
+                <a href="http://social.technet.microsoft.com/wiki/contents/articles/18067.package-cohesion-principle.aspx">Package Cohesion Principles</a>
+                <ol>
+                  <li>Reuse-release equivalence principle (REP): "The Granule of reuse is the granule of release"</li>
+                  <li>Common-reuse principle (CRP): "Classes that aren't reused together should not be grouped together"</li>
+                  <li>Common-closure principle (CCP): "Classes that change together, belong together. "</li>
+                </ol>
+              </li>
+              <li class="fragment">
+                <a href="http://social.technet.microsoft.com/wiki/contents/articles/18068.package-coupling-principles.aspx">Package Coupling Principles</a>
+                <ol>
+                  <li>The Acyclic Dependencies Principle: "The dependencies between packages must not form cycles"</li>
+                  <li>The Stable Dependencies Principle: "Depend in the direction of stability"</li>
+                  <li>The Stable Abstractions Principle: "Stable packages should be abstract packages"</li>
+                </ol>
+              </li>
+            </ul>
         </section>
         <section>
-          <h3>And many more...</h3>
-          <ul>
-          <li>Program to Interface Not Implementation.</li>
-          <li>DRY - Don't Repeat Yourself.</li>
-          <li>Encapsulate What Varies.</li>
-          <li>Depend on Abstractions, Not Concrete classes.</li>
-          <li>Least Knowledge Principle (Law of Demeter).
-          <ul>
-            <li><code>my_television.front_panel.switches.power.on();</code></li>
-            <li><code>my_television.power_up();</code></li>
-            </ul></li>
-          <li>Favor Composition over Inheritance.</li>
-          <li>Hollywood Principle: <a href="http://martinfowler.com/bliki/TellDontAsk.html">Tell-Don't-Ask</a>
-          <ul><li>Send commands to objects telling them what you want done!</li></ul></li>
-          <li><a href="http://social.technet.microsoft.com/wiki/contents/articles/18030.software-patterns-practices.aspx">Apply Design Pattern wherever possible</a></li>
-          <li>Strive for Loosely Coupled System.</li>
-          <li>KISS - Keep it Simple and Sweet / Stupid.</li>
-          </ul>
+            <h3>And many more...</h3>
+            <ul>
+              <li>Program to Interface Not Implementation.</li>
+              <li>DRY - Don't Repeat Yourself.</li>
+              <li>Encapsulate What Varies.</li>
+              <li>Depend on Abstractions, Not Concrete classes.</li>
+              <li>
+                Least Knowledge Principle (Law of Demeter).
+                <ul>
+                  <li><code>my_television.front_panel.switches.power.on();</code></li>
+                  <li><code>my_television.power_up();</code></li>
+                </ul>
+              </li>
+              <li>Favor Composition over Inheritance.</li>
+              <li>
+                Hollywood Principle: <a href="http://martinfowler.com/bliki/TellDontAsk.html">Tell-Don't-Ask</a>
+                <ul>
+                  <li>Send commands to objects telling them what you want done!</li>
+                </ul>
+              </li>
+              <li><a href="http://social.technet.microsoft.com/wiki/contents/articles/18030.software-patterns-practices.aspx">Apply Design Pattern wherever possible</a></li>
+              <li>Strive for Loosely Coupled System.</li>
+              <li>KISS - Keep it Simple and Sweet / Stupid.</li>
+            </ul>
         </section>
       </section>
       <section>
@@ -397,39 +465,6 @@
           </blockquote>
         </section>
         <section>
-          <h3>Desirable characteristics of Software:</h3>
-          <ul>
-            <li class="fragment">Simple</li>
-            <li class="fragment">Loosely-Coupled</li>
-            <li class="fragment">Extensible</li>
-            <li class="fragment">Reusable</li>
-            <li class="fragment">Stratified</li>
-            <li class="fragment">Standardized</li>
-          </ul>
-        </section>
-        <section>
-          <h3>Strong cohesion &amp; Low coupling</h3>
-          <ul>
-            <li class="fragment">Strong cohesion:
-              <ul>
-                <li>Related code from the same module/class should be bound together as far as possible.</li>
-              </ul>
-            </li>
-            <li class="fragment">Low coupling:
-              <ul>
-                <li>All modules should be independent as far as possible</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <!-- <section>
-          <h3>Abstraction:</h3>
-          <ul>
-            <li>Ignore irrelevant details.</li>
-          </ul>
-
-        </section> -->
-        <section>
           <h3>Strong cohesion: Encapsulate for easier understanding</h3>
           <ul>
             <li>Identify and isolate areas likely to change:
@@ -467,9 +502,7 @@
         <section>
           <p>Example: If generating files
             <strong>DO NOT</strong> put tags (e.g. XML) in the code!</p>
-
           <p>For Python, use: Django template language (DTL), Jinja2, etc...</p>
-
           <pre>
             <code class='mustache'>
 ws = CropWorkspace({{data.ws_name}}, XMin={{data.xmin}}, XMax={{data.xmax}})
@@ -477,6 +510,14 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
 {% for file in data.files %}
   ws_{{loop.index}} = Load({{file}})
 {% endfor %}
+            </code>
+            <code class='python'>
+data = {'ws_name' : 'abc',
+        'xmin' : 1,
+        'xmax' : 100,
+        'exponent' : 20,
+        'files' : ['/tmp/f1.nxs','/tmp/f2.nxs','/tmp/f3.nxs']
+}
             </code>
           </pre>
         </section>
@@ -504,13 +545,10 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
         </section>
         <section>
           <h3>PEP 0316 - Programming by Contract for Python</h3>
-
           <p>
             <em>Status: Deferred</em>
           </p>
-
           <h3>Alternatives:</h3>
-
           <ul>
             <li>PyContract</li>
             <li>PyDBC</li>
@@ -522,13 +560,13 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
 
           <pre>
             <code class="python">
-              from decontractors import *
-              @Precondition(lambda: x > 0 and y > 0)
-              @Postcondition(lambda: __return__ == (x + y))
-              def positive_nonzero_addition(x, y):
-                # Try changing the expression to return something else
-                return x + y # Won't work if at least one parameter is negative or zero
-              print positive_nonzero_addition(4, 1)
+    from decontractors import *
+    @Precondition(lambda: x > 0 and y > 0)
+    @Postcondition(lambda: __return__ == (x + y))
+    def positive_nonzero_addition(x, y):
+      # Try changing the expression to return something else
+      return x + y # Won't work if at least one parameter is negative or zero
+    print positive_nonzero_addition(4, 1)
             </code>
           </pre>
         </section>
@@ -536,15 +574,15 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
           <h3>DbC in Python: Assertions do (part of) the job!</h3>
           <pre>
             <code class="python">
-              def positive_nonzero_addition(x, y):
-                assert x > 0, 'x must be positive!' assert y > 0, 'y must be positive!'
-                return x + y print positive_nonzero_addition(4, 1)
-              print positive_nonzero_addition(4, -1)
+    def positive_nonzero_addition(x, y):
+      assert x > 0, 'x must be positive!' assert y > 0, 'y must be positive!'
+      return x + y print positive_nonzero_addition(4, 1)
+    print positive_nonzero_addition(4, -1)
             </code>
           </pre>
           <pre>
             <code class="bash">
-              $ python -O 'filename' # Turns assertions off!
+    $ python -O 'filename' # Turns assertions off!
             </code>
           </pre>
         </section>
@@ -727,8 +765,8 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
               <li>Function intent (Not what it does!)</li>
               <li>Choices made (i.e. why algorithm X and not Y)</li>
             </ul>
-            <li>Limit Conditionals</li>
-            <li>Limit nested Cycles and nested Conditionals</li>
+            <li>Limit Conditionals, nested Cycles and nested Conditionals</li>
+            <li>Single responsability: for classes and functions!</li>
             <li>Write code for others, not for you!</li>
           </ul>
           <p class="em0">Use
@@ -744,7 +782,12 @@ ws = Power({{data.ws_name}}, Exponent={{data.exponent}})
           </ul>
         </section>
         <section>
-          <h3>Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.</h3>
+          <blockquote cite="https://groups.google.com/d/msg/comp.lang.c++/rYCO5yn4lXw/oITtSkZOtoUJ">
+            <h3>Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.</h3>
+          </blockquote>
+          <p>
+            John Woods in <code>comp.lang.c++ </code> - <a href="https://groups.google.com/d/msg/comp.lang.c++/rYCO5yn4lXw/oITtSkZOtoUJ"><i>Usage of comma operator</i></a>, 1991.
+          </p>
         </section>
       </section>
       <section>
