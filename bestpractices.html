@@ -611,8 +611,7 @@ data = {'ws_name' : 'abc',
         </section>
         <section>
           <h3>Law of Demeter: Functions</h3>
-
-          <p>The Law of Demeter for functions states that any method of an object should call only methods belong to:</p>
+          <p>The Law of Demeter for functions states that any method of an object should call only methods belonging to itself, any parameters that were passed in to the method, any objects it created, or any directly held component object.</p>
           <pre>
             <code class="cpp">
               class Demeter {
@@ -622,7 +621,6 @@ data = {'ws_name' : 'abc',
                 public:
                   void example(B& b);
               }
-
               void Demeter::example(B& b) {
                 C c;
                 // itself
@@ -650,10 +648,7 @@ data = {'ws_name' : 'abc',
           </blockquote>
         </section>
         <section>
-          <h1>To start today</h1>
-        </section>
-        <section>
-          <h3>Replace Conditional with Polymorphism:</h3>
+          <h2>Replace Conditional with Polymorphism:</h2>
 
           <img src="markdown/BestPractices/img/replace_conditional_with_polymorphism.gif"/>
           <br/>
@@ -745,7 +740,7 @@ data = {'ws_name' : 'abc',
           <h2>Classes</h2>
           <h3>Single Responsability</h3>
           <p>Does your class represent more than one entity, or have more than one responsability???</p>
-          <p>If so, break it down!</p>
+          <p class="em5">If so, break it down!</p>
         </section>
         <section>
           <h2>Methods</h2>
@@ -753,11 +748,11 @@ data = {'ws_name' : 'abc',
           <ul>
           <li>Does the function title summarise its intent???</li>
           <ul>
-            <li>If it doesn't, break it down!</li>
-            <li>Too many parameters might be telling you something...</li>
+            <li class="em5">If it doesn't, break it down!</li>
+            <li class="em4">Too many parameters might be telling you something...</li>
           </ul>
           <li>Pre-conditions: What are valid input parameters (ranges, type, etc)?</li>
-          <ul><li>If you are the caller, don't forget to make sure the parameters are validated before!</li></ul>
+          <ul><li class="em4">If you are the caller, don't forget to make sure the parameters are validated before!</li></ul>
           <li>Post-conditions: What is supposed to be returned</li></li>
           <li>Can we use<code>assertions</code> in the test/development environment?</li>
           <ul>
@@ -768,13 +763,13 @@ data = {'ws_name' : 'abc',
             <li>Limit function size: VT100 size (24x80)?</li>
             <li> Comments: </li>
             <ul>
-              <li>Avoid obvious comments!</li>
+              <li class="em5">Avoid obvious comments!</li>
               <li>Function intent (Not what it does!)</li>
               <li>Choices made (i.e. why algorithm X and not Y)</li>
             </ul>
             <li>Limit Conditionals, nested Cycles and nested Conditionals</li>
             <li>Try to follow the Law of Demeter.</li>
-            <li>Write code for others, not for you!</li>
+            <li class="em2">Write code for others, not for you!</li>
           </ul>
           <p class="em0">Use
             <em>Code Complexity</em> tools.</p>
