@@ -735,36 +735,37 @@ data = {'ws_name' : 'abc',
             <p> CCN is the same, but nesting depth is better!
             <br/>See : <a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></p>
         </section>
+      </section>
+      <section>
         <section>
-          <h3>DbC: Let's KISS for now.</h3>
-          <p>
-            <strong>Plain English does the job:</strong>
-          </p>
-          <ul>
-            <li>Precondition:
-              <ul>
-                <li>What are valid parameters (ranges, types, etc)?</li>
-              </ul>
-            </li>
-            <li>Postcondition
-              <ul>
-                <li>What is supposed to be returned</li>
-              </ul>
-            </li>
-            <li>Invariants or Variants(?)
-              <ul>
-                <li>Any side effects I should be aware???</li>
-              </ul>
-            </li>
-            <li>Use
-              <code>assertions</code> in the test/development environment.</li>
-          </ul>
+          <h1> MANTID </h1>
+          <h2> Sugestions </h2>
         </section>
         <section>
-          <h2>To take home:</h2>
+          <h2>Classes</h2>
+          <h3>Single Responsability</h3>
+          <p>Does your class represent more than one entity, or have more than one responsability???</p>
+          <p>If so, break it down!</p>
+        </section>
+        <section>
+          <h2>Methods</h2>
+          <h3>Single Responsability</h3>
+          <ul>
+          <li>Does the function title summarise its intent???</li>
+          <ul>
+            <li>If it doesn't, break it down!</li>
+            <li>Too many parameters might be telling you something...</li>
+          </ul>
+          <li>Pre-conditions: What are valid input parameters (ranges, type, etc)?</li>
+          <ul><li>If you are the caller, don't forget to make sure the parameters are validated before!</li></ul>
+          <li>Post-conditions: What is supposed to be returned</li></li>
+          <li>Can we use<code>assertions</code> in the test/development environment?</li>
+          <ul>
+        </section>
+        <section>
+          <h2>Methods 2</h2>
           <ul>
             <li>Limit function size: VT100 size (24x80)?</li>
-            <li>Design by contract (at least Pre conditions!)</li>
             <li> Comments: </li>
             <ul>
               <li>Avoid obvious comments!</li>
@@ -772,7 +773,7 @@ data = {'ws_name' : 'abc',
               <li>Choices made (i.e. why algorithm X and not Y)</li>
             </ul>
             <li>Limit Conditionals, nested Cycles and nested Conditionals</li>
-            <li>Single responsability: for classes and functions!</li>
+            <li>Try to follow the Law of Demeter.</li>
             <li>Write code for others, not for you!</li>
           </ul>
           <p class="em0">Use
@@ -782,9 +783,16 @@ data = {'ws_name' : 'abc',
           <h2>More</h2>
           <ul>
             <li>Can we make Algorithms smaller?</li>
-            <li>exec() should have few clean lines</li>
+            <ul><li>exec() should have few clean lines</li></ul>
             <li>Can we separate functionality into independent packages?</li>
-            <li>technique.facility.instrument?</li>
+            <ul><li>'technique'.'facility'.'instrument'?</li></ul>
+            <p><pre><code class='python'>
+              sans.sns
+              sans.sns.eqsans
+              geometry
+              util.units
+              util.loaders
+            </code><pre></p>
           </ul>
         </section>
         <section>
