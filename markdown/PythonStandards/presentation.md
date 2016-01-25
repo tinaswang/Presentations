@@ -77,7 +77,7 @@ The Distributed Array Protocol (DAP) is a process-local protocol that allows two
 
 ---
 
-[Cython](http://cython.org/)
+# [Cython](http://cython.org/)
 
 Python with types...
 
