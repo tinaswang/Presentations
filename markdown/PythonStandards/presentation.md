@@ -74,6 +74,7 @@ The Distributed Array Protocol (DAP) is a process-local protocol that allows two
 - Enthought version of Dask (?)
 - Needs IPython da cluster running: ```dacluster start -n4```
 - Notebook [here](https://github.com/enthought/distarray/blob/master/examples/features.ipynb)
+
 ---
 
 # [Cython](http://cython.org/)
