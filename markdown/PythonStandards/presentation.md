@@ -30,6 +30,8 @@ Ricardo M. Ferraz Leal
 
 - Extension to pandas for labeled multi-dimensional arrays.
 - Xray uses NetCDF4 (hence HDF5) for persistent storage.
+
+References:
 - Notebook [here](http://nbviewer.ipython.org/urls/gist.githubusercontent.com/shoyer/be3749849809fe35efa8/raw/d3ac4af07343391ef005d2dbea80368efc9ee1f6/xray-demo-python-workers-party.ipynb).
 - Presentation of Xray at SciPy 2015 [here](http://www.slideshare.net/stephanhoyer/xray-nd-labeled-arrays-and-datasets-in-python).
 
@@ -44,59 +46,48 @@ Ricardo M. Ferraz Leal
 
 My test [here](https://github.com/ricleal/PythonParallel/blob/master/Dask/Dask%20arrays%201.ipynb)
 
-- Talk from SciPy: https://speakerdeck.com/jcrist/pandas-through-task-scheduling
-
-- Dask releasing the GIL with Numba:
-http://dask.readthedocs.org/en/latest/array-api.html#dask.array.core.Array.map_blocks
-
-- Dask.array: Calculations with arrays bigger than your memory:
-http://earthpy.org/dask.html
-
-Video:
-
-https://www.youtube.com/watch?v=HLME2WKTJJ8
-
-
-
+References:
+- Talk from SciPy [here](https://speakerdeck.com/jcrist/pandas-through-task-scheduling).
+- Dask releasing the GIL with Numba [here](http://dask.readthedocs.org/en/latest/array-api.html#dask.array.core.Array.map_blocks).
+- Dask.array: Calculations with arrays bigger than your memory
+[here](http://earthpy.org/dask.html).
+- [Article](http://conference.scipy.org/proceedings/scipy2015/pdfs/matthew_rocklin.pdf).
 
 ---
 
 
 # Xray + Dask:
 
-Xray provides labeled, multi-dimensional arrays. Dask provides a system for parallel computing. Together, they allow for easy analysis of scientific datasets that don’t fit into memory.
+- Xray provides labeled, multi-dimensional arrays.
+- Dask provides a system for parallel computing.
+- Together, they allow for easy analysis of scientific datasets that don’t fit into memory.
 
-Example:
-https://www.continuum.io/content/xray-dask-out-core-labeled-arrays-python
+References:
+- Example [here](https://www.continuum.io/content/xray-dask-out-core-labeled-arrays-python)
 
 ---
 
-# DistArray
+# [DistArray](http://docs.enthought.com/distarray/)
 
 The Distributed Array Protocol (DAP) is a process-local protocol that allows two subscribers, called the producer and the consumer or the exporter and the importer, to communicate the essential data and metadata necessary to share a distributed-memory array between them.
 
+- Enthought version of Dask (?)
 - Needs IPython da cluster running: ```dacluster start -n4```
-- Notebook: https://github.com/enthought/distarray/blob/master/examples/features.ipynb
-
-https://github.com/enthought/distarray
-
-http://docs.enthought.com/distarray/
-
+- Notebook [here](https://github.com/enthought/distarray/blob/master/examples/features.ipynb)
 ---
 
-# Cython
+# [Cython](http://cython.org/)
+
+Python with types...
 
 - Can invoke C/C++ routines
 - Declares static type of subroutine parameters and results, local variables, and class attributes.
 - I.e. Python to C source code translator that integrates with the CPython interpreter on a low level.
-
-http://cython.org/
-
-http://docs.cython.org/
+- My tests [here](https://github.com/ricleal/PythonParallel/tree/master/Cython).
 
 ---
 
-# Numba
+# [Numba](http://numba.pydata.org/)
 
 - Numba works by generating optimized machine code using the LLVM compiler infrastructure.
 ```python
@@ -112,27 +103,29 @@ def f(x, y):
     return x + y
 ```
 
-https://github.com/numba/numba
+---
 
-http://numba.pydata.org/
+# [ODO](https://github.com/blaze/odo)
+
+To convert file/data formats
+
+![](https://raw.githubusercontent.com/blaze/odo/master/docs/source/images/conversions.png)
 
 ---
 
-# ODO
+# [Blaze](http://blaze.pydata.org/)
 
-To convert file format:
-https://odo.readthedocs.org/en/latest/
+The Blaze ecosystem is a set of libraries that help users store, describe, query and process data. It is composed of the following core projects:
 
----
-
-# Blaze
-
-For everything:
-http://blaze.pydata.org/
+* Blaze: An interface to query data on different storage systems
+* Dask: Parallel computing through task scheduling and blocked algorithms
+* Datashape: A data description language
+* DyND: A C++ library for dynamic, multidimensional arrays
+* Odo: Data migration between different storage systems
 
 ---
 
-# Seaborn: statistical data visualization
+# [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/#): statistical data visualization
 
 ```
 import seaborn as sns
