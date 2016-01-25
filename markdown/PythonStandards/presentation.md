@@ -9,48 +9,58 @@ Ricardo M. Ferraz Leal
 
 # Standard Data formats
 
-- Pandas Dataframes
-  - New: Release the Global Interpreter Lock (GIL) on some cython operations!
+- [Pandas](http://pandas.pydata.org/) Dataframes
+  - Tabular data.
+  - `Panel`: 3-dimensional array:
+    * `labels`, `major_axis`, `minor_axis`
+  - `Panel4D` (Experimental)
+    * `labels`, `items`, `major_axis`, `minor_axis`
+  - Lots of functionality: statistics, interpolation, mask, etc  
+  - New: Release the Global Interpreter Lock (GIL) on some `cython` operations!
 - Numpy Arrays
   - numpy code often releases the GIL while it is calculating.
 
 ---
 
-# Dask:
+# New Standards
 
-- Parallel computing: threading, multiprocessing, etc.. (no need for launching mpi clusters)
-- Talk from SciPy: https://speakerdeck.com/jcrist/pandas-through-task-scheduling
+---
 
+# [xarray](http://xarray.pydata.org/) (formerly xray):
+
+- Extension to pandas for labeled multi-dimensional arrays.
+- Xray uses NetCDF4 (hence HDF5) for persistent storage.
+- Notebook [here](http://nbviewer.ipython.org/urls/gist.githubusercontent.com/shoyer/be3749849809fe35efa8/raw/d3ac4af07343391ef005d2dbea80368efc9ee1f6/xray-demo-python-workers-party.ipynb).
+- Presentation of Xray at SciPy 2015 [here](http://www.slideshare.net/stephanhoyer/xray-nd-labeled-arrays-and-datasets-in-python).
+
+---
+
+# [Dask](http://dask.pydata.org/):
+
+- Parallel computing: threading, multiprocessing, etc..
   - dask.array = numpy + threading
   - dask.dataframe = pandas + threading  
   - dask.bag = map, filter, itertools, toolz + multiprocessing
 
-Dask releasing the GIL with Numba:
+My test [here](https://github.com/ricleal/PythonParallel/blob/master/Dask/Dask%20arrays%201.ipynb)
+
+- Talk from SciPy: https://speakerdeck.com/jcrist/pandas-through-task-scheduling
+
+- Dask releasing the GIL with Numba:
 http://dask.readthedocs.org/en/latest/array-api.html#dask.array.core.Array.map_blocks
 
-Dask.array: Calculations with arrays bigger than your memory:
+- Dask.array: Calculations with arrays bigger than your memory:
 http://earthpy.org/dask.html
 
 Video:
+
 https://www.youtube.com/watch?v=HLME2WKTJJ8
 
-https://github.com/ContinuumIO/dask
 
-http://dask.pydata.org/
 
----
-
-# Xray
-
-- Extension to pandas for labeled multi-dimensional arrays.
-- Parallel processing
-- Notebook [here](http://nbviewer.ipython.org/urls/gist.githubusercontent.com/shoyer/be3749849809fe35efa8/raw/d3ac4af07343391ef005d2dbea80368efc9ee1f6/xray-demo-python-workers-party.ipynb).
-
-https://github.com/xray/xray
-
-http://xray.readthedocs.org
 
 ---
+
 
 # Xray + Dask:
 
@@ -119,3 +129,23 @@ https://odo.readthedocs.org/en/latest/
 
 For everything:
 http://blaze.pydata.org/
+
+---
+
+# Seaborn: statistical data visualization
+
+```
+import seaborn as sns
+sns.jointplot(data=df, kind="kde");
+```
+
+![](http://stanford.edu/~mwaskom/software/seaborn/_images/distributions_34_0.png)
+---
+
+
+
+---
+
+Our `Workspace2D` could be exported to a Pandas Dataframe
+
+pixel_id, x, y, z, panel_id, panel_x, panel_y, times[n]/bins[n]
