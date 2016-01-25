@@ -1,5 +1,15 @@
-# Python Packages for Science
 
+title: Python Packages for Science
+output: presentation.html
+author:
+    name: Ricardo M. F. Leal
+    twitter: ricferrazleal
+    url: http://ricleal.github.io
+theme: reveal-cleaver-theme
+
+---
+
+# Python Packages for Science
 
 Ricardo M. Ferraz Leal
 
@@ -7,7 +17,7 @@ Ricardo M. Ferraz Leal
 
 ---
 
-# Standard Data formats
+## Standard Data formats
 
 - [Pandas](http://pandas.pydata.org/) Dataframes
   - Tabular data.
@@ -26,7 +36,7 @@ Ricardo M. Ferraz Leal
 
 ---
 
-# [xarray](http://xarray.pydata.org/) (formerly xray):
+## [xarray](http://xarray.pydata.org/) (formerly xray):
 
 - Extension to pandas for labeled multi-dimensional arrays.
 - Xray uses NetCDF4 (hence HDF5) for persistent storage.
@@ -37,7 +47,7 @@ References:
 
 ---
 
-# [Dask](http://dask.pydata.org/):
+## [Dask](http://dask.pydata.org/):
 
 - Parallel computing: threading, multiprocessing, etc..
   - dask.array = numpy + threading
@@ -56,7 +66,7 @@ References:
 ---
 
 
-# Xray + Dask:
+## Xray + Dask:
 
 - Xray provides labeled, multi-dimensional arrays.
 - Dask provides a system for parallel computing.
@@ -67,17 +77,20 @@ References:
 
 ---
 
-# [DistArray](http://docs.enthought.com/distarray/)
+## [DistArray](http://docs.enthought.com/distarray/)
 
-The Distributed Array Protocol (DAP) is a process-local protocol that allows two subscribers, called the producer and the consumer or the exporter and the importer, to communicate the essential data and metadata necessary to share a distributed-memory array between them.
+`DistArray` provides general multidimensional `NumPy`-like distributed arrays to Python. It intends to bring the strengths of `NumPy` to data-parallel high-performance computing. `DistArray` has a similar API to NumPy.
+
+DistArray is ready for real-world testing and deployment; however, the project is still evolving rapidly, and we appreciate continued input from the scientific-Python community.
 
 - Enthought version of Dask (?)
-- Needs IPython da cluster running: ```dacluster start -n4```
+- MPI
+- Uses the [Distributed Array Protocol](https://github.com/enthought/distributed-array-protocol).
 - Notebook [here](https://github.com/enthought/distarray/blob/master/examples/features.ipynb).
 
 ---
 
-# [Cython](http://cython.org/)
+## [Cython](http://cython.org/)
 
 Python with types...
 
@@ -88,7 +101,7 @@ Python with types...
 
 ---
 
-# [Numba](http://numba.pydata.org/)
+## [Numba](http://numba.pydata.org/)
 
 - Numba works by generating optimized machine code using the LLVM compiler infrastructure.
 ```python
@@ -106,7 +119,7 @@ def f(x, y):
 
 ---
 
-# [ODO](https://github.com/blaze/odo)
+## [ODO](https://github.com/blaze/odo)
 
 To convert file/data formats
 
@@ -114,7 +127,7 @@ To convert file/data formats
 
 ---
 
-# [Blaze](http://blaze.pydata.org/)
+## [Blaze](http://blaze.pydata.org/)
 
 The Blaze ecosystem is a set of libraries that help users store, describe, query and process data. It is composed of the following core projects:
 
@@ -126,7 +139,7 @@ The Blaze ecosystem is a set of libraries that help users store, describe, query
 
 ---
 
-# [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/#): statistical data visualization
+## [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/#): statistical data visualization
 
 ```
 import seaborn as sns
