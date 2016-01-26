@@ -6,5 +6,8 @@ http://jdan.github.io/cleaver/
 npm install -g cleaver
 
 # And run it against your shiny new presentation
-cleaver path/to/presentation.md
+cleaver presentation.md
+
+# See it
+
 ```

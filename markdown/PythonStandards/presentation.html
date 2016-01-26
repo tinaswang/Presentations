@@ -359,7 +359,7 @@ code {
     <h2 id="standard-data-formats">Standard Data formats</h2>
 <ul>
 <li><a href="http://pandas.pydata.org/">Pandas</a> Dataframes<ul>
-<li>Tabular data.</li>
+<li>Tabular data: i.e. spreadsheet style.</li>
 <li><code>Panel</code>: 3-dimensional array:<ul>
 <li><code>labels</code>, <code>major_axis</code>, <code>minor_axis</code></li>
 </ul>
@@ -368,11 +368,12 @@ code {
 <li><code>labels</code>, <code>items</code>, <code>major_axis</code>, <code>minor_axis</code></li>
 </ul>
 </li>
-<li>Lots of functionality: statistics, interpolation, mask, etc  </li>
+<li>Lots of functionality: statistics, interpolation, masks, etc</li>
+<li>Intuitive Indexing and Selecting Data</li>
 <li>New: Release the Global Interpreter Lock (GIL) on some <code>cython</code> operations!</li>
 </ul>
 </li>
-<li>Numpy Arrays<ul>
+<li><a href="http://www.numpy.org/">Numpy</a> Arrays<ul>
 <li>numpy code often releases the GIL while it is calculating.</li>
 </ul>
 </li>
@@ -387,33 +388,37 @@ code {
     <h2 id="-xarray-http-xarray-pydata-org-formerly-xray-"><a href="http://xarray.pydata.org/">xarray</a> (formerly xray):</h2>
 <ul>
 <li>Extension to pandas for labeled multi-dimensional arrays.</li>
-<li>Xray uses NetCDF4 (hence HDF5) for persistent storage.</li>
-</ul>
-<p>References:</p>
+<li><p>Xray uses NetCDF4 (hence HDF5) for persistent storage.</p>
+</li>
+<li><p><strong>References</strong>:</p>
 <ul>
 <li>Notebook <a href="http://nbviewer.ipython.org/urls/gist.githubusercontent.com/shoyer/be3749849809fe35efa8/raw/d3ac4af07343391ef005d2dbea80368efc9ee1f6/xray-demo-python-workers-party.ipynb">here</a>.</li>
 <li>Presentation of Xray at SciPy 2015 <a href="http://www.slideshare.net/stephanhoyer/xray-nd-labeled-arrays-and-datasets-in-python">here</a>.</li>
+</ul>
+</li>
 </ul>
 
   </section>
   <section>
     <h2 id="-dask-http-dask-pydata-org-"><a href="http://dask.pydata.org/">Dask</a>:</h2>
 <ul>
-<li>Parallel computing: threading, multiprocessing, etc..<ul>
+<li><p>Parallel computing: threading, multiprocessing, etc..</p>
+<ul>
 <li>dask.array = numpy + threading</li>
 <li>dask.dataframe = pandas + threading  </li>
 <li>dask.bag = map, filter, itertools, toolz + multiprocessing</li>
 </ul>
 </li>
-</ul>
-<p>My test <a href="https://github.com/ricleal/PythonParallel/blob/master/Dask/Dask%20arrays%201.ipynb">here</a></p>
-<p>References:</p>
+<li><p><strong>References</strong>:</p>
 <ul>
+<li>My test <a href="https://github.com/ricleal/PythonParallel/blob/master/Dask/Dask%20arrays%201.ipynb">here</a></li>
 <li>Talk from SciPy <a href="https://speakerdeck.com/jcrist/pandas-through-task-scheduling">here</a>.</li>
 <li>Dask releasing the GIL with Numba <a href="http://dask.readthedocs.org/en/latest/array-api.html#dask.array.core.Array.map_blocks">here</a>.</li>
 <li>Dask.array: Calculations with arrays bigger than your memory
 <a href="http://earthpy.org/dask.html">here</a>.</li>
 <li><a href="http://conference.scipy.org/proceedings/scipy2015/pdfs/matthew_rocklin.pdf">Article</a>.</li>
+</ul>
+</li>
 </ul>
 
   </section>
@@ -422,18 +427,21 @@ code {
 <ul>
 <li>Xray provides labeled, multi-dimensional arrays.</li>
 <li>Dask provides a system for parallel computing.</li>
-<li>Together, they allow for easy analysis of scientific datasets that don’t fit into memory.</li>
-</ul>
-<p>References:</p>
+<li><p>Together, they allow for easy analysis of scientific datasets that don’t fit into memory.</p>
+</li>
+<li><p><strong>References</strong>:</p>
 <ul>
 <li>Example <a href="https://www.continuum.io/content/xray-dask-out-core-labeled-arrays-python">here</a></li>
+</ul>
+</li>
 </ul>
 
   </section>
   <section>
     <h2 id="-distarray-http-docs-enthought-com-distarray-"><a href="http://docs.enthought.com/distarray/">DistArray</a></h2>
-<p><code>DistArray</code> provides general multidimensional <code>NumPy</code>-like distributed arrays to Python. It intends to bring the strengths of <code>NumPy</code> to data-parallel high-performance computing. <code>DistArray</code> has a similar API to NumPy.</p>
-<p>DistArray is ready for real-world testing and deployment; however, the project is still evolving rapidly, and we appreciate continued input from the scientific-Python community.</p>
+<p><code>DistArray</code> provides general multidimensional <code>NumPy</code>-like distributed arrays to Python.
+It intends to bring the strengths of <code>NumPy</code> to data-parallel high-performance computing.
+<code>DistArray</code> has a similar API to NumPy.</p>
 <ul>
 <li>Enthought version of Dask (?)</li>
 <li>MPI</li>
@@ -469,9 +477,34 @@ code {
 
   </section>
   <section>
+    <h2 id="-castra-https-github-com-blaze-castra-"><a href="https://github.com/blaze/castra">Castra</a></h2>
+<p>Castra is an on-disk, partitioned, compressed, column store. Castra provides efficient columnar range queries.</p>
+<ul>
+<li>Efficient on-disk</li>
+<li>Partitioned</li>
+<li>Compressed</li>
+<li>Column-store</li>
+<li>Tabular data</li>
+</ul>
+
+  </section>
+  <section>
     <h2 id="-odo-https-github-com-blaze-odo-"><a href="https://github.com/blaze/odo">ODO</a></h2>
 <p>To convert file/data formats</p>
-<p><img src="https://raw.githubusercontent.com/blaze/odo/master/docs/source/images/conversions.png" alt=""></p>
+<p><strong>Formats</strong>:</p>
+<ul>
+<li>AWS</li>
+<li>CSV</li>
+<li>JSON</li>
+<li>HDF5</li>
+<li>Hadoop File System</li>
+<li>Hive Metastore</li>
+<li>Mongo</li>
+<li>Spark/SparkSQL</li>
+<li>SAS</li>
+<li>SQL</li>
+<li>SSH</li>
+</ul>
 
   </section>
   <section>
@@ -495,11 +528,6 @@ sns.jointplot(data=df, kind=&quot;kde&quot;);</code></pre>
   </section>
   <section>
     
-  </section>
-  <section>
-    <p>Our <code>Workspace2D</code> could be exported to a Pandas Dataframe</p>
-<p>pixel_id, x, y, z, panel_id, panel_x, panel_y, times[n]/bins[n]</p>
-
   </section>
   <section>
     <div class="author">
