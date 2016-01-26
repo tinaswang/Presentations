@@ -193,7 +193,9 @@
         </section>
         <section>
             <h3>Minimal complexity:</h3>
-            <p>Avoid making <strong>clever</strong> designs. Clever designs are usually hard to understand. Keep it simple</p>
+            <p>Avoid making <strong>clever</strong> designs.</p>
+            <p>Clever designs are usually hard to understand.</p>
+            <h3 class="em4">Keep it simple</h3>
         </section>
         <section>
             <h3>Ease of maintenance:</h3>
@@ -216,7 +218,8 @@
         </section>
         <section>
             <h3>Reusability:</h3>
-            <p>Less code duplication, more code reuse. Code can be reused in other systems.</p>
+            <p class='em3'>Less code duplication, more code reuse.</p>
+            <p>Code can be reused in other systems.</p>
         </section>
         <section>
             <h3>High Fan-In</h3>
@@ -229,7 +232,7 @@
             <p>Highfan-out (more than about seven) indicates a class uses a large number of other classes and may be overly complex.</p>
         </section>
         <section>
-          <img data-src="markdown/BestPractices/img/fan-in-out.png" />
+          <img data-src="markdown/BestPractices/img/fanin-fanout.png" />
         </section>
         <section>
             <h3>Portability</h3>
@@ -238,14 +241,17 @@
         <section>
             <h3>Leanness</h3>
             <p>No redundant modules/classes/functionalities.</p>
+            <p class="em4">Delete your fancy methods! Nobody is likely to use them...</p>
         </section>
         <section>
             <h3>Stratification</h3>
             <p>Try to keep the levels of decomposition stratified so you can view the system at any single level without dipping into other levels.</p>
+            <img data-src='markdown/BestPractices/img/CleanArchitecture.jpg' width="70%" height="70%" />
         </section>
         <section>
             <h3>Standard techniques</h3>
-            <p>Give the whole system a familiar feeling by using standardized, common approaches. E.g. Design Patterns.</p>
+            <p>Use standardised, common approaches!</p>
+            <p>One Step Build, Testing Frameworks, Standard Libraries, Design Patterns...</p>
         </section>
       </section>
       <section>
@@ -272,6 +278,7 @@
               <strong>D</strong>ependency inversion principle
             </li>
           </ul>
+          <p>Introduced by Michael Feathers for the "First Five Principles" named by Robert C. Martin in the early 2000s</p>
         </section>
         <section>
           <h3>Single responsibility principle</h3>
@@ -286,9 +293,8 @@
         </section>
         <section>
           <h3>Open/closed principle</h3>
-          <p>
-            "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification"; that is, such an entity can allow its behaviour to be extended without modifying its source code
-          </p>
+          <p>"Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification"</p>
+          <p>I.e., an entity should allow its behaviour to be extended without modifying its source code</p>
           <div class="em2">
             "Software entities should be open for extension, but closed for modification".
           </div>
@@ -296,16 +302,16 @@
           <img data-src="markdown/BestPractices/img/Extensible.png" />
         </section>
         <section>
-          <h3>Liskov substitution principle</h3>
-          <p>
-            "Subjects in a program should be replaceable with instances of their subtypes without altering the correctness of that program". I.e, derived classes just extend without replacing the functionality of old classes.
+          <h3>Liskov Substitution Principle</h3>
+          <p>"Subjects in a program should be replaceable with instances of their subtypes without altering the correctness of that program".</p>
+          <p>I.e, derived classes just extend without replacing the functionality of old classes.
             <br/> That is, a user of a base class should continue to function properly if a derivative of that base class is passed to it.
           </p>
           <div class="em2">
             "Subjects in a program should be replaceable with instances of their subtypes without altering the correctness of that program".
           </div>
           <img data-src="markdown/BestPractices/img/LSP.png" />
-
+          <p>Deriving square from rectangle is a classic example of violation of LSP.</p>
         </section>
         <section>
           <h3>Interface segregation principle</h3>
@@ -653,7 +659,7 @@ data = {'ws_name' : 'abc',
           <img src="markdown/BestPractices/img/replace_conditional_with_polymorphism.gif"/>
           <br/>
           <ul>
-            <li><a href="https://github.com/ricleal/PythonCode/tree/master/src/Design">Python factories</a></li>
+            <li><a href="https://github.com/ricleal/PythonCode/tree/master/Design">Python factories</a></li>
             <li>C++: <a href="https://github.com/ricleal/CppTests/blob/master/src/oop/non_oop.cpp">Non OOP</a> vs <a href="https://github.com/ricleal/CppTests/blob/master/src/oop/oop.cpp">OOP</a>
             </li>
           </ul>
@@ -754,7 +760,7 @@ data = {'ws_name' : 'abc',
           <li>Pre-conditions: What are valid input parameters (ranges, type, etc)?</li>
           <ul><li class="em4">If you are the caller, don't forget to make sure the parameters are validated before!</li></ul>
           <li>Post-conditions: What is supposed to be returned</li></li>
-          <li>Can we use<code>assertions</code> in the test/development environment?</li>
+          <li>Can we use <code>assertions</code> only in the test/development environment?</li>
           <ul>
         </section>
         <section>
