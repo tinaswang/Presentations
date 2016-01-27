@@ -89,6 +89,9 @@
             <li class="fragment">1/3 IT projects were successfully completed on time and on budget over 2013.</li>
             <li class="fragment">1/5 IT projects fail: <span class="em5">No value at all!</span></li>
           </ul>
+          <p>
+          <a class="fragment" href="https://en.wikipedia.org/wiki/List_of_failed_and_overbudget_custom_software_projects">List of failed and overbudget custom software projects</a>
+          </p>
         </section>
         <section>
           <h2>Most common causes for software failures:</h2>
@@ -186,6 +189,14 @@
             <br/> It does not express its intent well...
           </p>
         </section>
+        <section>
+          <h3>The Broken Windows Theory</h3>
+          <blockquote>
+            An abandoned building with a few broken windows is more likely to be vandalised if the windows aren’t repaired.<br/>
+            - Wilson & Kelling, 1982.
+          </blockquote>
+          <h3 class="fragment">A successful strategy is to fix problems as soon as possible.</h3>
+        </section>
       </section>
       <section>
         <section>
@@ -246,7 +257,8 @@
         <section>
             <h3>Stratification</h3>
             <p>Try to keep the levels of decomposition stratified so you can view the system at any single level without dipping into other levels.</p>
-            <img data-src='markdown/BestPractices/img/CleanArchitecture.jpg' width="70%" height="70%" />
+            <img data-src='markdown/BestPractices/img/CleanArchitecture.jpg' width="65%" height="65%" />
+            <p>Also: Hexagonal Architecture, Ports and Adapters, Onion, etc...</p>
         </section>
         <section>
             <h3>Standard techniques</h3>
@@ -391,12 +403,11 @@
             <br/> – Steve McConnell in Code Complete.
           </blockquote>
           <ul  class="fragment">
-            <P>
-              Several Studies have found a positive correlation between cyclomatic complexity and defects:
-              <BR/>
-              <div class="em0">
+            <P>Several Studies have found a positive correlation between cyclomatic complexity and defects:
+            </p>
+              <h3 class="em4">
                 Methods that have the highest complexity tend to also contain the most defects.
-              </div>
+              </h3>
             </P>
             <P class="em5">
               Correlation between LOC and defects has not been proven yet!
@@ -451,6 +462,9 @@
             <span class="em0">GetDetOffsetsMultiPeaks::fitSpectra</span> and
             <span class="em0">ReflectometryReductionOne::transmissonCorrection</span>
             have 14 parameters
+          </p>
+          <p class="fragment em4">
+            By the way... A good number is maximum of 3!
           </p>
           <p class="fragment">
             length(
@@ -600,14 +614,15 @@ data = {'ws_name' : 'abc',
         </section>
         <section>
           <h2>Law of Demeter</h2>
-
-          <p>3 principles:</p>
-
+          <blockquote>
           <ul>
-            <li>Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.</li>
-            <li>Each unit should only talk to its friends; don't talk to strangers.</li>
-            <li>Only talk to your immediate friends.</li>
+            <li>You can play with yourself.</li>
+            <li>You can play with your own toys (but you can't take them apart),</li>
+            <li>You can play with toys that were given to you.</li>
+            <li>And you can play with toys you've made yourself.</li>
           </ul>
+          -- Peter Van Rooijen (Usenet)
+          </blockquote>
         </section>
         <section>
           <img data-src="markdown/BestPractices/img/LoD-viol-UML.jpg" />
@@ -736,6 +751,13 @@ data = {'ws_name' : 'abc',
             <p> CCN is the same, but nesting depth is better!
             <br/>See : <a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></p>
         </section>
+        <section>
+          <blockquote>
+            Try and leave this world a little better than you found it.<br/>
+            - Robert Baden-Powell, the founder of the "Scout Movement".
+          </blockquote>
+          <h3 class="fragment">”Leave the code cleaner than you found it!”</h3>
+        </section>
       </section>
       <section>
         <section>
@@ -858,6 +880,11 @@ data = {'ws_name' : 'abc',
         </section>
         <section>
 
+          <img data-src="markdown/BestPractices/img/reading-room.gif" />
+
+          <p>
+            <br/> <a href="http://issuu.com/softhouse/docs/clean_code_5_min_en">Clean Code in five minutes, by Softhouse</a>
+          </p>
         </section>
 
       </section>
