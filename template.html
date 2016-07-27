@@ -84,6 +84,11 @@
                       </ul>
                     </li>
                     <li class="fragment">Will compare and contrast with Mantid</li>
+                    <li class="fragment">Will be implemented in Ricardo's SANS
+                      data web interface</li>
+                      <aside class="notes"> Implemented in Python a few HFIR SANS
+                         data reduction methods to compare/contrast them with methods in Mantid
+              </aside>
               </section>
               <section>
                 <h2>SANS</h2>
@@ -140,6 +145,7 @@
                 <section data-markdown>
                     <script type="text/template">
                       ##Searching via XPath
+                      * XPath: "a syntax for defining parts of an XML document" (W3Schools)
                       * Can retrieve data values given tag names
                       * Examples
                         * "p" is the Parser object
@@ -169,8 +175,8 @@
                     import xarray as xr
 
                     detector_data = xr.DataArray(detector_data,
-                                                coords=[y_axis_units, x_axis_units],
-                                                dims=['y', 'x'])
+                                                coords=[x_axis_units, y_axis_units],
+                                                dims=['x', 'y'])
 
                     detector_data.plot()
                   ```
@@ -233,9 +239,6 @@
             </section>
           </section>
 
-        </section>
-
-
         <section>
             <section>
                 <h2>Beam Finder</h2>
@@ -268,7 +271,8 @@
                 <section>
                     <h2>Method 3: 2D Gaussian Fit</h2>
                     <ul>
-                      <li class="fragment">Found point close to actual beam center via ndimage</li>
+                      <li class="fragment">Found point close to actual beam center
+                        via modified ndimage</li>
                       <li class="fragment">Used point and data to fit a 2D Gaussian</li>
                       <li class="fragment">Center of Gaussian: beam center</li>
                     </ul>
@@ -291,12 +295,24 @@
                     </ul>
 
                     <img src="img/vertical_pattern.png">
+                    <aside class="notes">Since we have interleaved tubes,
+                      and the back tubes get less neutrons than the front tubes,
+                      the correction must be applied before center finding
+                    </aside>
                 </section>
                   <section>
                         <h2>Compare and Contrast</h2>
                         <img src="img/vertical_pattern.png">
                         <img src="img/corrected.png">
+                        <aside class="notes">The algorithm works but we could
+                        not obtain the correct flood field file, so the
+                      beam center appears blurry. </aside>
                     </section>
+                    <section>
+                          <h2>Compare and Contrast, Pt. 2</h2>
+                          <img src="img/vertical_1d.png">
+                          <img src="img/corrected_1d.png">
+                      </section>
                 </section>
             </section>
 
@@ -336,10 +352,13 @@
                               <li class="fragment">Two Gaussians to find angles</li>
                               <li class="fragment">Angles always around 180 degrees apart</li>
                               <li class="fragment">Start at first dip and
-                                add 360 to estimate location of angles.</li>
+                                add 360 to estimate location of angles</li>
                             </ul>
                             </li>
                         </ul>
+
+                        <aside class ="notes">Took a spline of the data on
+                        that line, and then fit the Gaussian.</aside>
                         <img src="img/sector_averages.png">
                         <img src="img/double_gaussian.png">
                     </section>
@@ -359,9 +378,7 @@
                                 * First @jit run is slower due to compiling machine code
                                 * Small size of HFIR Data inhibits large speed improvement
                                   * General improvement between 25-30%
-
-
-                                * Random z-values between 0 and 100:
+                              * Random z-values between 0 and 100:
 
 
                                 ```c
@@ -374,7 +391,6 @@
                                 Time jit:      0.050 sec
                                 Time jit:      0.050 sec
                                 ```
-
                         </script>
                       </section>
                       <section data-markdown>
@@ -402,7 +418,10 @@
 
             <section>
               <h2> Special Thanks </h2>
-              <p>Ricardo Leal, Thomas Proffen</p>
+              <ul>
+                <li class="fragment">Ricardo Leal</li>
+                <li class="fragment">Thomas Proffen</li>
+              </ul>
             </section>
         </div>
     </div>
@@ -471,6 +490,7 @@
                 }
             ]
         });
+
     </script>
 </body>
 
