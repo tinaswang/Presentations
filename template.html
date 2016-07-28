@@ -83,7 +83,6 @@
                         <li class="fragment">...etc.</li>
                       </ul>
                     </li>
-                    <li class="fragment">Will compare and contrast with Mantid</li>
                     <li class="fragment">Will be implemented in Ricardo's SANS
                       data web interface</li>
                       <aside class="notes"> Implemented in Python a few HFIR SANS
@@ -182,7 +181,22 @@
                   ```
                   </script>
                 </section>
-
+                <section>
+                  <h2>xarray Continued</h2>
+                  <ul>
+                    <li class = "fragment">More code examples</li>
+                    <li class = "fragment">Simple task to copy axes</li>
+                  </ul>
+                   <pre><code data-trim data-noescape>
+beam_center.plot()
+# (0,0) away from the beam center
+data.plot()
+data.x.values = beam_center.x.values
+data.y.values = beam_center.y.values
+# (0,0) at the beam center
+data.plot()
+                    </code></pre>
+                </section>
                 <section>
                     <h2>Background Subtraction</h2>
                     <ul>
@@ -191,7 +205,6 @@
                         <li class="fragment">Very simple in Python:
                           <ul>
                             <li class="fragment">subtracted_data = data - backgrd_data </li>
-                            <li class="fragment">Much simpler than Mantid</li>
                           </ul>
                         </li>
                     </ul>
@@ -213,8 +226,8 @@
                         <li class="fragment">matplotlib: Python scientific
                           graphing library</li>
                     </ul>
-
-                      <img src = "img/radial_profile.png">
+                    
+                      <img src = "img/radial_profile.PNG">
                       <img src = "img/subtracted.png">
 
                 </section>
@@ -245,8 +258,14 @@
                 <ul>
                   <li class="fragment">Problem: Mantid gives different beam center than SPICE</li>
                   <!-- See presentation notes -->
-                  <img src="img/spice.png">
-                  <img src="img/mantid.png">
+                  <table>
+                  <tr>
+                    <td align="center"><img src="img/spice.png"></td>
+                    <td align="center"><img src="img/mantid.PNG"></td>
+                  </tr>
+                </table>
+
+
                 </ul>
             </section>
                 <section>
@@ -273,7 +292,7 @@
                     <ul>
                       <li class="fragment">Found point close to actual beam center
                         via modified ndimage</li>
-                      <li class="fragment">Used point and data to fit a 2D Gaussian</li>
+                      <li class="fragment">Used point for an initial guess for a 2D Gaussian</li>
                       <li class="fragment">Center of Gaussian: beam center</li>
                     </ul>
 
@@ -339,9 +358,7 @@
                             </ul>
                           </li>
                         </ul>
-
-
-                        <img src="img/double_cross.png">
+                        <img src="img/sector_averages.png">
                     </section>
                     <section>
                         <h2>Find angles</h2>
@@ -359,8 +376,9 @@
 
                         <aside class ="notes">Took a spline of the data on
                         that line, and then fit the Gaussian.</aside>
-                        <img src="img/sector_averages.png">
+
                         <img src="img/double_gaussian.png">
+                        <img src="img/double_cross.png">
                     </section>
                     <section data-markdown>
                         <script type="text/template">
