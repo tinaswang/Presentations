@@ -138,8 +138,6 @@
                         * Python Dictionary
                         * JSON String
                         * JSON File
-
-                    </ul>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
@@ -257,7 +255,6 @@ data.plot()
                 <h2>Beam Finder</h2>
                 <ul>
                   <li class="fragment">Problem: Mantid gives different beam center than SPICE</li>
-                  <!-- See presentation notes -->
                   <table>
                   <tr>
                     <td align="center"><img src="img/spice.png"></td>
@@ -288,7 +285,16 @@ data.plot()
                     </ul>
                 </section>
                 <section>
-                    <h2>Method 3: 2D Gaussian Fit</h2>
+                    <h2>Method 3: Absolute Maximum</h2>
+                    <ul>
+                      <li class="fragment">Found absolute maximum point</li>
+                      <li class="fragment">Not always the same point as the center</li>
+                    </ul>
+
+                    <img src = "img/maximum_com.png">
+                </section>
+                <section>
+                    <h2>Method 4: 2D Gaussian Fit</h2>
                     <ul>
                       <li class="fragment">Found point close to actual beam center
                         via modified ndimage</li>
@@ -354,7 +360,7 @@ data.plot()
                             <li class="fragment">Wedge Finding:
                             <ul>
                               <li class="fragment">Gaussian blur to smooth out noise</li>
-                              <li class="fragment"> OpenCV: MinMaxLoc</li>
+                              <li class="fragment"> OpenCV: MinMaxLoc function</li>
                             </ul>
                           </li>
                         </ul>
@@ -415,7 +421,7 @@ data.plot()
                           <script type="text/template">
                                 ##Numba con't.
                                 * More Tests
-                                * Random 3d data z-values are from 0-1000:
+                                * Random 3D data: z-values are from 0-1000:
 
 
                                 ```c
