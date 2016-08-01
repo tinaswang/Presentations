@@ -75,7 +75,7 @@
                 <ul>
                     <li>Mantid structure: C++ with Python bindings</li>
                     <li>However, modern Python packages for
-                      scientific computing provide a suitable alternative.
+                      scientific computing provide suitable alternatives
                       <ul>
                         <li>Scipy</li>
                         <li>NumPy</li>
@@ -92,11 +92,10 @@
               <section>
                 <h2>SANS</h2>
                 <ul>
-                  <!-- Slide on SANS -->
                     <li>Small Angle Neutron Scattering (SANS)
                       <ul>
                         <li>Technique for viewing the structure
-                          of polymers and biological materials (proteins, etc.)</li>
+                          of polymers and biological molecules (proteins, etc.)</li>
                       </ul>
                     </li>
                     <table>
@@ -104,6 +103,8 @@
                     <td align="center"><img src="img/sans.jpg"></td>
                     </tr>
                   </table>
+                  <aside class="notes">Presentation mainly concerned with
+                  HFIR SANS data.</aside>
               </section>
                 <section>
                     <h2>Outline</h2>
@@ -182,19 +183,21 @@
                   </script>
                 </section>
                 <section>
-                  <h2>xarray Continued</h2>
+                  <h2>xarray continued</h2>
                   <ul>
                     <li>More code examples</li>
                     <li>Simple task to copy axes</li>
                   </ul>
-                   <pre><code data-trim data-noescape>
-beam_center.plot()
-# (0,0) away from the beam center
-data.plot()
-data.x.values = beam_center.x.values
-data.y.values = beam_center.y.values
-# (0,0) at the beam center
-data.plot()
+                   <pre><code>
+                    beam_center.plot()
+                    # (0,0) away from the beam center
+                    data.plot()
+
+                    data.x.values = beam_center.x.values
+                    data.y.values = beam_center.y.values
+
+                    # (0,0) at the beam center
+                    data.plot()
                     </code></pre>
                 </section>
                 <section>
@@ -220,6 +223,8 @@ data.plot()
                 </section>
                 <section>
                     <h2>Graphing Capabilities</h2>
+                    <aside class="notes">Plotly and matplotlib can graph radial
+                    profile, data, and beam center.</aside>
                     <ul>
                         <li> Plotly Offline:
                           has capabilities of Plotly but saves graph in a file</li>
@@ -231,7 +236,6 @@ data.plot()
                       <img src = "img/subtracted.png">
 
                 </section>
-
 
             <section>
                 <h2>Process Outline</h2>
@@ -311,7 +315,6 @@ data.plot()
                     <img src = "img/right_center.png">
                 </section>
 
-
         </section>
 
 
@@ -335,9 +338,9 @@ data.plot()
                         <h2>Compare and Contrast</h2>
                         <img src="img/vertical_pattern.png">
                         <img src="img/corrected.png">
-                        <aside class="notes">The algorithm works but we could
-                        not obtain the correct flood field file, so the
-                      beam center appears blurry. </aside>
+                        <aside class="notes">Image to the right much smoother
+                        and lacks the vertical pattern seen in the image on
+                      the left.</aside>
                     </section>
                     <section>
                           <h2>Compare and Contrast</h2>
@@ -427,7 +430,8 @@ data.plot()
                           <script type="text/template">
                                 ##Numba con't.
                                 * More Tests
-                                * Random 3D data: z-values are from 0-1000:
+                                * Random EQ-SANS-like data
+                                  * Random 3D data: z-values are from 0-1000:
 
 
                                 ```c
@@ -537,9 +541,6 @@ data.plot()
                     src: 'reveal/plugin/notes/notes.js',
                     async: true
                 },
-
-                // Remote control your reveal.js presentation using a touch device
-                // { src: 'reveal/plugin/remotes/remotes.js', async: true },
 
                 // MathJax
                 {
