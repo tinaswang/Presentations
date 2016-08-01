@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Template</title>
+    <title>SANS Data Reduction with Python</title>
 
     <meta name="description" content="Summer Work Presentation">
     <meta name="author" content="Tina Wang">
@@ -73,17 +73,17 @@
               <section>
                 <h2>Introduction</h2>
                 <ul>
-                    <li class="fragment">Mantid structure: C++ with Python bindings</li>
-                    <li class="fragment">However, modern Python packages for
+                    <li>Mantid structure: C++ with Python bindings</li>
+                    <li>However, modern Python packages for
                       scientific computing provide a suitable alternative.
                       <ul>
-                        <li class="fragment">Scipy</li>
-                        <li class="fragment">NumPy</li>
-                        <li class="fragment">matplotlib</li>
-                        <li class="fragment">...etc.</li>
+                        <li>Scipy</li>
+                        <li>NumPy</li>
+                        <li>matplotlib</li>
+                        <li>...etc.</li>
                       </ul>
                     </li>
-                    <li class="fragment">Will be implemented in Ricardo's SANS
+                    <li>Will be implemented in Ricardo's SANS
                       data web interface</li>
                       <aside class="notes"> Implemented in Python a few HFIR SANS
                          data reduction methods to compare/contrast them with methods in Mantid
@@ -93,33 +93,35 @@
                 <h2>SANS</h2>
                 <ul>
                   <!-- Slide on SANS -->
-                    <li class="fragment">Small Angle Neutron Scattering (SANS)
+                    <li>Small Angle Neutron Scattering (SANS)
                       <ul>
-                        <li class="fragment">Technique for viewing the structure
+                        <li>Technique for viewing the structure
                           of polymers and biological materials (proteins, etc.)</li>
                       </ul>
                     </li>
-
-
-                    <img src="img/sans.jpg">
+                    <table>
+                    <tr>
+                    <td align="center"><img src="img/sans.jpg"></td>
+                    </tr>
+                  </table>
               </section>
                 <section>
                     <h2>Outline</h2>
                     <ul>
-                        <li class="fragment">HFIR SANS Parser
+                        <li>HFIR SANS Parser
                           <ul>
-                            <li class="fragment">XPath Data Search</li>
-                            <li class="fragment">xarray</li>
-                            <li class="fragment">Graphing Capabilities</li>
+                            <li>XPath Data Search</li>
+                            <li>xarray</li>
+                            <li>Graphing Capabilities</li>
                           </ul>
                         </li>
-                        <li class="fragment">Beam Finder</li>
-                        <li class="fragment">Sensitivity Correction</li>
-                        <li class="fragment">Ansiotropic SANS Refinement
+                        <li>Beam Finder</li>
+                        <li>Sensitivity Correction</li>
+                        <li>Ansiotropic SANS Refinement
                           <ul>
-                            <li class="fragment">Sector Averaging</li>
-                            <li class="fragment">Double Gaussian Fitting</li>
-                            <li class="fragment">Numba</li>
+                            <li>Sector Averaging</li>
+                            <li>Double Gaussian Fitting</li>
+                            <li>Numba</li>
                           </ul>
                         </li>
                     </ul>
@@ -182,8 +184,8 @@
                 <section>
                   <h2>xarray Continued</h2>
                   <ul>
-                    <li class = "fragment">More code examples</li>
-                    <li class = "fragment">Simple task to copy axes</li>
+                    <li>More code examples</li>
+                    <li>Simple task to copy axes</li>
                   </ul>
                    <pre><code data-trim data-noescape>
 beam_center.plot()
@@ -198,11 +200,11 @@ data.plot()
                 <section>
                     <h2>Background Subtraction</h2>
                     <ul>
-                        <li class="fragment">Subtracts out background data
+                        <li>Subtracts out background data
                         for more accurate calculations</li>
-                        <li class="fragment">Very simple in Python:
+                        <li>Very simple in Python:
                           <ul>
-                            <li class="fragment">subtracted_data = data - backgrd_data </li>
+                            <li>subtracted_data = data - backgrd_data </li>
                           </ul>
                         </li>
                     </ul>
@@ -210,18 +212,18 @@ data.plot()
                 <section>
                     <h2>Translation</h2>
                     <ul>
-                        <li class="fragment">Translates center to correct location</li>
-                        <li class="fragment">Converts from pixels to mm</li>
-                        <li class="fragment">Found at
+                        <li>Translates center to correct location</li>
+                        <li>Converts from pixels to mm</li>
+                        <li>Found at
                           "/SPICErack/Motor_Positions/detector_trans/#text"</li>
                     </ul>
                 </section>
                 <section>
                     <h2>Graphing Capabilities</h2>
                     <ul>
-                        <li class="fragment"> Plotly Offline:
+                        <li> Plotly Offline:
                           has capabilities of Plotly but saves graph in a file</li>
-                        <li class="fragment">matplotlib: Python scientific
+                        <li>matplotlib: Python scientific
                           graphing library</li>
                     </ul>
 
@@ -232,20 +234,20 @@ data.plot()
 
 
             <section>
-                <h2>Summary: Process</h2>
+                <h2>Process Outline</h2>
                 <ul>
-                  <li class="fragment">Translate according to
+                  <li>Translate according to
                     "/SPICErack/Motor_Positions/detector_trans/#text"</li>
-                  <li class="fragment">Find ROI</li>
-                  <li class="fragment">Beam Center
+                  <li>Find ROI</li>
+                  <li>Beam Center
                     <ul>
-                      <li class="fragment">ndimage</li>
-                      <li class="fragment">2D Gaussian fit</li>
+                      <li>ndimage</li>
+                      <li>2D Gaussian fit</li>
                     </ul>
                   </li>
-                  <li class="fragment">Adjust axes</li>
-                  <li class="fragment">Create xarray DataArray</li>
-                  <li class="fragment">Plot</li>
+                  <li>Adjust axes</li>
+                  <li>Create xarray DataArray</li>
+                  <li>Plot</li>
                 </ul>
             </section>
           </section>
@@ -254,7 +256,11 @@ data.plot()
             <section>
                 <h2>Beam Finder</h2>
                 <ul>
-                  <li class="fragment">Problem: Mantid gives different beam center than SPICE</li>
+                  <li>Problem: Mantid gives different beam center than SPICE
+                    <ul>
+                      <li>SPICE is the LabVIEW-based data acquisition system</li>
+                    </ul>
+                  </li>
                   <table>
                   <tr>
                     <td align="center"><img src="img/spice.png"></td>
@@ -268,8 +274,8 @@ data.plot()
                 <section>
                     <h2>Method 1: Scipy.ndimage</h2>
                     <ul>
-                        <li class="fragment">scipy.ndimage.measurements.center_of_mass</li>
-                        <li class="fragment">Unexpected results</li>
+                        <li>scipy.ndimage.measurements.center_of_mass</li>
+                        <li>Unexpected results</li>
                     </ul>
 
                     <img src = "img/wrong_center.png">
@@ -278,17 +284,17 @@ data.plot()
                     <h2>Method 2: Center of Mass formula</h2>
                     <img src = "img/formula.png">
                     <ul>
-                      <li class="fragment">Starts at the edge of the detector,
+                      <li>Starts at the edge of the detector,
                         and would loop until it was close to the correct point</li>
-                        <li class="fragment">Very similar results to ndimage</li>
-                        <li class="fragment">Unexpected results</li>
+                        <li>Very similar results to ndimage</li>
+                        <li>Unexpected results</li>
                     </ul>
                 </section>
                 <section>
                     <h2>Method 3: Absolute Maximum</h2>
                     <ul>
-                      <li class="fragment">Found absolute maximum point</li>
-                      <li class="fragment">Not always the same point as the center</li>
+                      <li>Found absolute maximum point</li>
+                      <li>Not always the same point as the center</li>
                     </ul>
 
                     <img src = "img/maximum_com.png">
@@ -296,10 +302,10 @@ data.plot()
                 <section>
                     <h2>Method 4: 2D Gaussian Fit</h2>
                     <ul>
-                      <li class="fragment">Found point close to actual beam center
+                      <li>Found point close to actual beam center
                         via modified ndimage</li>
-                      <li class="fragment">Used point for an initial guess for a 2D Gaussian</li>
-                      <li class="fragment">Center of Gaussian: beam center</li>
+                      <li>Used point for an initial guess for a 2D Gaussian</li>
+                      <li>Center of Gaussian: beam center</li>
                     </ul>
 
                     <img src = "img/right_center.png">
@@ -313,9 +319,9 @@ data.plot()
                 <section>
                     <h2>Sensitivity Correction</h2>
                     <ul>
-                      <li class="fragment">Problem: We saw a pattern of
+                      <li>Problem: We saw a pattern of
                         vertical lines on some graphs.</li>
-                      <li class="fragment"> Presence of interleaving tubes:
+                      <li> Presence of interleaving tubes:
               sensitivity correction must be applied before center finding.</li>
                     </ul>
 
@@ -350,17 +356,17 @@ data.plot()
                     <section>
                         <h2>Method</h2>
                         <ul>
-                            <li class="fragment">Sector average (NumPy) time:
+                            <li>Sector average (NumPy) time:
                               <ul>
-                                <li class="fragment">1st run: 0.180018 seconds</li>
-                                <li class="fragment"> 2nd: 0.029003 s</li>
-                                <li class="fragment"> 3rd: 0.030003 s</li>
+                                <li>1st run: 0.180018 seconds</li>
+                                <li> 2nd: 0.029003 s</li>
+                                <li> 3rd: 0.030003 s</li>
                               </ul>
                             </li>
-                            <li class="fragment">Wedge Finding:
+                            <li>Wedge Finding:
                             <ul>
-                              <li class="fragment">Gaussian blur to smooth out noise</li>
-                              <li class="fragment"> OpenCV: MinMaxLoc function</li>
+                              <li>Gaussian blur to smooth out noise</li>
+                              <li> OpenCV: MinMaxLoc function</li>
                             </ul>
                           </li>
                         </ul>
@@ -369,12 +375,12 @@ data.plot()
                     <section>
                         <h2>Find angles</h2>
                         <ul>
-                            <li class="fragment">Take y-coordinate of maximum and draw line</li>
-                            <li class="fragment">Gaussian Fit
+                            <li>Take y-coordinate of maximum and draw line</li>
+                            <li>Gaussian Fit
                             <ul>
-                              <li class="fragment">Two Gaussians to find angles</li>
-                              <li class="fragment">Angles always around 180 degrees apart</li>
-                              <li class="fragment">Start at first dip and
+                              <li>Two Gaussians to find angles</li>
+                              <li>Angles always around 180 degrees apart</li>
+                              <li>Start at first dip and
                                 add 360 to estimate location of angles</li>
                             </ul>
                             </li>
@@ -436,17 +442,45 @@ data.plot()
                                 ```
                           </script>
                         </section>
+                        <section>
+                          <h2>Summary</h2>
+                          <ul>
+                            <li>XML to Python Dictionary/JSON Parser
+                              <ul>
+                                <li>xarray</li>
+                              </ul>
+                            </li>
+                            <li>Beam finding methods
+                              <ul>
+                                <li">Scipy</li>
+                                <li>Absolute maximum</li>
+                                <li>2D Gaussian</li>
+                              </ul>
+                            </li>
+                            <li>Sensitivity Correction</li>
+                            <li">Anisotropic SANS refinement
+                              <ul>
+                                <li>Angle finding</li>
+                                <li>Numba</li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </section>
                 </section>
 
-            </section>
+
 
             <section>
               <h2> Special Thanks </h2>
               <ul>
-                <li class="fragment">Ricardo Leal</li>
-                <li class="fragment">Thomas Proffen</li>
+                <li>Ricardo Leal</li>
+                <li>Thomas Proffen</li>
               </ul>
             </section>
+
+            <section>
+              <h2>Questions?</h2>
+              </section>
         </div>
     </div>
 
@@ -460,7 +494,7 @@ data.plot()
             history: true,
             center: true,
             theme: Reveal.getQueryHash().theme,
-            transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
             dependencies: [
                 // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
                 {
