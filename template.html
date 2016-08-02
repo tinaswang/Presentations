@@ -83,11 +83,20 @@
                         <li>...etc.</li>
                       </ul>
                     </li>
-                    <li>Will be implemented in the new SANS
-                      data web interface</li>
+                    <li>Will be implemented in the new SANS data reduction
+                      web interface
+                      <ul>
+                        <li>Python backend</li>
+                      </ul>
+                    </li>
                       <aside class="notes"> Implemented in Python a few HFIR
                          SANS data reduction methods to compare/contrast them
-                         with methods in Mantid
+                         with methods in Mantid.
+                         <ul>
+                           <li>
+                             Did not want to install Mantid on the web server
+                           </li>
+                         </ul>
               </aside>
               </section>
               <section>
@@ -111,7 +120,7 @@
                 <section>
                     <h2>Outline</h2>
                     <ul>
-                        <li>HFIR SANS Parser
+                        <li>HFIR SANS Parser (HFIR XML files)
                           <ul>
                             <li>XPath Data Search</li>
                             <li>xarray</li>
@@ -153,8 +162,9 @@
                       * Examples
                         * "p" is the Parser object
 
-
                       ```c
+                      p = Parser("HFIR/.../xml_file.xml")
+
                       pixel_size_x = p.xpath_get("/SPICErack/Header/x_mm_per_pixel/#text")
 
                       pixel_size_y = p.xpath_get("/SPICErack/Header/y_mm_per_pixel/#text")
@@ -167,6 +177,7 @@
                 </section>
 
                 <section data-markdown>
+                  <!--  Insert Image-->
                   <script type="text/template">
                     ##xarray
 
@@ -183,25 +194,31 @@
 
                     detector_data.plot()
                   ```
+
+
+                  ![xarray plot](img/plot.png)
                   </script>
                 </section>
                 <section>
                   <h2>xarray continued</h2>
+                  <!-- Insert image -->
                   <ul>
                     <li>More code examples</li>
                     <li>Simple task to copy axes</li>
                   </ul>
-                   <pre><code>
+                   <pre><code data-trim>
                     beam_center.plot()
-                    # (0,0) away from the beam center
-                    data.plot()
+# (0,0) away from the beam center
+data.plot()
 
-                    data.x.values = beam_center.x.values
-                    data.y.values = beam_center.y.values
+data.x.values = beam_center.x.values
+data.y.values = beam_center.y.values
 
-                    # (0,0) at the beam center
-                    data.plot()
+# (0,0) at the beam center
+data.plot()
                     </code></pre>
+                    <img src="img/figure_1.png">
+                    <img src="img/figure_2.png">
                 </section>
                 <section>
                     <h2>Background Subtraction</h2>
@@ -230,7 +247,13 @@
                     profile, data, and beam center.</aside>
                     <ul>
                         <li> Plotly Offline:
-                          has capabilities of Plotly but saves graph in a file</li>
+                          Integrates with web integrator
+                        <ul>
+                          <li>
+                            Can be saved in a file or as a div
+                               to display in a web page
+                          </li>
+                        </ul></li>
                         <li>matplotlib: Python scientific
                           graphing library</li>
                     </ul>
@@ -254,8 +277,16 @@
                   </li>
                   <li>Adjust axes</li>
                   <li>Create xarray DataArray</li>
-                  <li>Plot</li>
+                  <li>Plot 1D
+
+                  </li>
                 </ul>
+                <aside class="notes">
+                  <ul>
+                    <li>Integrated in the web data reduction</li>
+                    <li>Will give users overview of raw intensity</li>
+                  </ul>
+                </aside>
             </section>
           </section>
 
@@ -268,15 +299,16 @@
                       <li>SPICE is the LabVIEW-based data acquisition system</li>
                     </ul>
                   </li>
+                </ul>
                   <table>
                   <tr>
                     <td align="center"><img src="img/spice.png"></td>
                     <td align="center"><img src="img/mantid.PNG"></td>
                   </tr>
                 </table>
+                <aside class="notes">
 
-
-                </ul>
+                </aside>
             </section>
                 <section>
                     <h2>Method 1: Scipy.ndimage</h2>
@@ -291,6 +323,7 @@
                     <h2>Method 2: Center of Mass formula</h2>
                     <img src = "img/formula.png">
                     <ul>
+                      <li>Mantid method</li>
                       <li>Starts at the edge of the detector,
                         and would loop until it was close to the correct point</li>
                         <li>Very similar results to ndimage</li>
@@ -327,14 +360,18 @@
                     <ul>
                       <li>Problem: We saw a pattern of
                         vertical lines on some graphs.</li>
-                      <li> Presence of interleaving tubes:
-              sensitivity correction must be applied before center finding.</li>
+                      <li> Problem: Mantid finds the center before sensitivity
+                      correction.
+                    </li>
                     </ul>
 
                     <img src="img/vertical_pattern.png">
                     <aside class="notes">Since we have interleaved tubes,
                       and the back tubes get less neutrons than the front tubes,
                       the correction must be applied before center finding
+                      <ul>
+                        <li>According to scientists, this is not correct.</li>
+                      </ul>
                     </aside>
                 </section>
                   <section>
@@ -347,6 +384,11 @@
                     </section>
                     <section>
                           <h2>Compare and Contrast</h2>
+                          <ul>
+                            <li>
+                              More well-defined center
+                            </li>
+                          </ul>
                           <img src="img/vertical_1d.png">
                           <img src="img/corrected_1d.png">
                       </section>
@@ -356,7 +398,11 @@
             <section>
                 <section>
                     <h2>Anisotropic SANS Refinement</h2>
-
+                    <ul>
+                      <li>
+                        Scientists needed to find the wedge angle automatically.
+                      </li>
+                    </ul>
                     <img src="img/anisotropy.png">
                   </section>
                     <section>
@@ -377,6 +423,7 @@
                           </li>
                         </ul>
                         <img src="img/sector_averages.png">
+                        <!-- Label axes-->
                     </section>
                     <section>
                         <h2>Finding angles</h2>
@@ -422,14 +469,14 @@
 
 
                                 ```c
-                                14:59 $ python test_numba.py
-                                Time non jit:     11.345 sec
-                                Time non jit:     11.333 sec
-                                Time jit:     52.778 sec
-                                Time jit:      0.050 sec
-                                Time jit:      0.049 sec
-                                Time jit:      0.050 sec
-                                Time jit:      0.050 sec
+                                14:51 $ python test_numba.py
+                                Time non jit:      1.654 sec
+                                Time non jit:      1.489 sec
+                                Time jit:      5.046 sec
+                                Time jit:      0.005 sec
+                                Time jit:      0.005 sec
+                                Time jit:      0.005 sec
+                                Time jit:      0.005 sec
                                 ```
                         </script>
                       </section>
