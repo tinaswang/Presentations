@@ -77,7 +77,7 @@
                     <li>However, modern Python packages for
                       scientific computing provide suitable alternatives
                       <ul>
-                        <li>Scipy</li>
+                        <li>e.g.: Scipy</li>
                         <li>NumPy</li>
                         <li>matplotlib</li>
                         <li>...etc.</li>
@@ -85,8 +85,9 @@
                     </li>
                     <li>Will be implemented in Ricardo's SANS
                       data web interface</li>
-                      <aside class="notes"> Implemented in Python a few HFIR SANS
-                         data reduction methods to compare/contrast them with methods in Mantid
+                      <aside class="notes"> Implemented in Python a few HFIR
+                         SANS data reduction methods to compare/contrast them
+                         with methods in Mantid
               </aside>
               </section>
               <section>
@@ -95,7 +96,8 @@
                     <li>Small Angle Neutron Scattering (SANS)
                       <ul>
                         <li>Technique for viewing the structure
-                          of polymers and biological molecules (proteins, etc.)</li>
+                          of polymers and biological molecules (proteins, etc.)
+                        </li>
                       </ul>
                     </li>
                     <table>
@@ -145,7 +147,8 @@
                 <section data-markdown>
                     <script type="text/template">
                       ##Searching via XPath
-                      * XPath: "a syntax for defining parts of an XML document" (W3Schools)
+                      * XPath: "a syntax for defining parts of an XML document"
+                      (W3Schools)
                       * Can retrieve data values given tag names
                       * Examples
                         * "p" is the Parser object
@@ -348,7 +351,7 @@
                           <img src="img/corrected_1d.png">
                       </section>
                 </section>
-            </section>
+
 
             <section>
                 <section>
@@ -376,7 +379,7 @@
                         <img src="img/sector_averages.png">
                     </section>
                     <section>
-                        <h2>Find angles</h2>
+                        <h2>Finding angles</h2>
                         <ul>
                             <li>Take y-coordinate of maximum and draw line</li>
                             <li>Gaussian Fit
@@ -398,7 +401,8 @@
                     <section data-markdown>
                         <script type="text/template">
                               ##Numba
-                              * A simple way to improve speed on "for" loops and computational functions
+                              * A simple way to improve speed on "for" loops
+                              and purely computational functions
 
                               ```c
                               from numba import jit
@@ -406,10 +410,13 @@
                               @jit
                               def get_center_of_mass(d):
                               ```
-                              * Numba Test Runs with Random 3D Data (similar to EQ SANS Data):
+                              * Numba Test Runs with Random 3D Data (similar to
+                              EQ SANS Data):
                                 * NumPy runs at similar speed
-                                * First @jit run is slower due to compiling machine code
-                                * Small size of HFIR Data inhibits large speed improvement
+                                * First @jit run is slower due to compiling
+                                machine code
+                                * Small size of HFIR Data inhibits large speed
+                                improvement
                                   * General improvement between 25-30%
                               * Random z-values between 0 and 100:
 
@@ -477,8 +484,8 @@
             <section>
               <h2> Special Thanks </h2>
               <ul>
-                <li>Ricardo Leal</li>
-                <li>Thomas Proffen</li>
+                <li class="fragment">Ricardo Leal</li>
+                <li class="fragment">Thomas Proffen</li>
               </ul>
             </section>
 
