@@ -137,6 +137,7 @@
                           </ul>
                         </li>
                     </ul>
+                      <aside class ="notes"></aside>
                 </section>
             </section>
 
@@ -178,6 +179,7 @@
 
                 <section data-markdown>
                   <!--  Insert Image-->
+
                   <script type="text/template">
                     ##xarray
 
@@ -196,7 +198,8 @@
                   ```
 
 
-                  ![xarray plot](img/plot.png)
+
+                    ![alt text](img/plot.png)
                   </script>
                 </section>
                 <section>
@@ -207,7 +210,6 @@
                     <li>Simple task to copy axes</li>
                   </ul>
                    <pre><code data-trim>
-                    beam_center.plot()
 # (0,0) away from the beam center
 data.plot()
 
@@ -260,7 +262,14 @@ data.plot()
 
                       <img src = "img/radial_profile.PNG">
                       <img src = "img/subtracted.png">
+                      <aside class="notes"> <ul>
+                      <li>First integrates to get radial profile via the web
+                        integrator. </li>
+                        <li>
+                          Plotly graph can be save as a div or as an html file
+                        </li>
 
+                      </aside>
                 </section>
 
             <section>
@@ -307,7 +316,8 @@ data.plot()
                   </tr>
                 </table>
                 <aside class="notes">
-
+                  BioSANS scientists noticed that Mantid and SPICE were
+                  producing different results for the center of mass
                 </aside>
             </section>
                 <section>
@@ -318,6 +328,10 @@ data.plot()
                     </ul>
 
                     <img src = "img/wrong_center.png">
+                    <aside class="notes">
+                      We first tried the default scipy method for finding the
+                      center of mass. Unexpected results
+                    </aside>
                 </section>
                 <section>
                     <h2>Method 2: Center of Mass formula</h2>
@@ -329,6 +343,10 @@ data.plot()
                         <li>Very similar results to ndimage</li>
                         <li>Unexpected results</li>
                     </ul>
+                    <aside class="notes">
+                      Mantid method. Delivered very similar results to ndimage's
+                      center of mass function.
+                    </aside>
                 </section>
                 <section>
                     <h2>Method 3: Absolute Maximum</h2>
@@ -338,6 +356,10 @@ data.plot()
                     </ul>
 
                     <img src = "img/maximum_com.png">
+                    <aside class="notes">
+                      Absolute maximum location not the same as center of mass
+                      in most files.
+                    </aside>
                 </section>
                 <section>
                     <h2>Method 4: 2D Gaussian Fit</h2>
@@ -349,6 +371,17 @@ data.plot()
                     </ul>
 
                     <img src = "img/right_center.png">
+                    <aside class="notes">
+                      <ul>
+                        <li>
+                          Modified ndimage took in acoount only the highest points
+                        </li>
+                        <li>
+                          Used those points for an initial guess for the 2d
+                          Gaussian
+                        </li>
+                      </ul>
+                    </aside>
                 </section>
 
         </section>
@@ -370,7 +403,7 @@ data.plot()
                       and the back tubes get less neutrons than the front tubes,
                       the correction must be applied before center finding
                       <ul>
-                        <li>According to scientists, this is not correct.</li>
+                        <li>According to scientists, this can be improved upon.</li>
                       </ul>
                     </aside>
                 </section>
@@ -380,17 +413,22 @@ data.plot()
                         <img src="img/corrected.png">
                         <aside class="notes">Image to the right much smoother
                         and lacks the vertical pattern seen in the image on
-                      the left.</aside>
+                      the left. Defined center</aside>
                     </section>
                     <section>
                           <h2>Compare and Contrast</h2>
-                          <ul>
-                            <li>
-                              More well-defined center
-                            </li>
-                          </ul>
                           <img src="img/vertical_1d.png">
                           <img src="img/corrected_1d.png">
+                          <aside class="notes">
+                            <ul>
+                              <li>
+                                Point out smoother curve
+                              </li>
+                              <li>
+                                Less noisy
+                              </li>
+                            </ul>
+                          </aside>
                       </section>
                 </section>
 
@@ -400,7 +438,7 @@ data.plot()
                     <h2>Anisotropic SANS Refinement</h2>
                     <ul>
                       <li>
-                        Scientists needed to find the wedge angle automatically.
+                        Scientists needed to find the wedge angles automatically
                       </li>
                     </ul>
                     <img src="img/anisotropy.png">
@@ -423,7 +461,7 @@ data.plot()
                           </li>
                         </ul>
                         <img src="img/sector_averages.png">
-                        <!-- Label axes-->
+                        <!-- Label axes or talk about them in the presentation-->
                     </section>
                     <section>
                         <h2>Finding angles</h2>
@@ -479,6 +517,7 @@ data.plot()
                                 Time jit:      0.005 sec
                                 ```
                         </script>
+
                       </section>
                       <section data-markdown>
                           <script type="text/template">
@@ -510,19 +549,20 @@ data.plot()
                             </li>
                             <li>Beam finding methods
                               <ul>
-                                <li">Scipy</li>
+                                <li>Scipy</li>
                                 <li>Absolute maximum</li>
                                 <li>2D Gaussian</li>
                               </ul>
                             </li>
                             <li>Sensitivity Correction</li>
-                            <li">Anisotropic SANS refinement
+                            <li>Anisotropic SANS refinement
                               <ul>
                                 <li>Angle finding</li>
                                 <li>Numba</li>
                               </ul>
                             </li>
                           </ul>
+
                         </section>
                 </section>
 
