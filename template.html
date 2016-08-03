@@ -89,9 +89,13 @@
                         <li>Python backend</li>
                       </ul>
                     </li>
-                      <aside class="notes"> Implemented in Python a few HFIR
+                      <aside class="notes">
+                        <li>
+                          C++ w/ Python bindings best choice at the time
+                        </li>
+                         <li>Implemented in Python a few HFIR
                          SANS data reduction methods to compare/contrast them
-                         with methods in Mantid.
+                         with methods in Mantid.</li>
                          <ul>
                            <li>
                              Did not want to install Mantid on the web server
@@ -114,8 +118,12 @@
                     <td align="center"><img src="img/sans.jpg"></td>
                     </tr>
                   </table>
-                  <aside class="notes">Presentation mainly concerned with
-                  HFIR SANS data.</aside>
+                  <aside class="notes">
+                    <li>
+                      Very brief background about SANS
+                    </li>
+                  <li> Presentation mainly concerned with
+                  HFIR SANS data.</li></aside>
               </section>
                 <section>
                     <h2>Outline</h2>
@@ -137,7 +145,19 @@
                           </ul>
                         </li>
                     </ul>
-                      <aside class ="notes"></aside>
+                      <aside class ="notes">
+                        <ul>
+                          <li>
+                            First, talk about parser.
+                          </li>
+                          <li>
+                            Beam Finder, Sensitivity Correction
+                          </li>
+                          <li>
+                            Anisotropic SANS Refinement: process and numba
+                          </li>
+                        </ul>
+                      </aside>
                 </section>
             </section>
 
@@ -367,7 +387,8 @@ data.plot()
                     </ul>
                     <aside class="notes">
                       Mantid method. Delivered very similar results to ndimage's
-                      center of mass function.
+                      center of mass function. Looped until two points were less
+                      than 0.25 pixels away.
                     </aside>
                 </section>
                 <section>
@@ -464,6 +485,9 @@ data.plot()
                       </li>
                     </ul>
                     <img src="img/anisotropy.png">
+                    <aside class="notes">
+
+                    </aside>
                   </section>
                     <section>
                         <h2>Method</h2>
