@@ -154,7 +154,7 @@
                         * JSON String
                         * JSON File
                 </section>
-                <section data-markdown>
+                <section data-markdown data-notes="^Note:">
                     <script type="text/template">
                       ##Searching via XPath
                       * XPath: "a syntax for defining parts of an XML document"
@@ -174,10 +174,14 @@
 
                       # returns 2d array of detector data
                       ```
+
+
+                        Note: XPath can easily search through the XML file and
+                        "grab" the value in the desired data field
                     </script>
                 </section>
 
-                <section data-markdown>
+                <section data-markdown data-notes="^Note:">
                   <!--  Insert Image-->
 
                   <script type="text/template">
@@ -200,6 +204,9 @@
 
 
                     ![alt text](img/plot.png)
+
+                    Note: xarray makes it easy for datasets to be included with
+                    axes corrected for units (pixels to milimeters)
                   </script>
                 </section>
                 <section>
@@ -221,6 +228,14 @@ data.plot()
                     </code></pre>
                     <img src="img/figure_1.png">
                     <img src="img/figure_2.png">
+                    <aside class="notes">
+                      It's also easy to take corrected axes and insert them onto
+                      an uncorrected data set.
+                      <li>
+                        Graphs here show dataset before and after taking corrected
+                        axis from the beam center.
+                      </li>
+                    </aside>
                 </section>
                 <section>
                     <h2>Background Subtraction</h2>
@@ -242,6 +257,11 @@ data.plot()
                         <li>Found at
                           "/SPICErack/Motor_Positions/detector_trans/#text"</li>
                     </ul>
+                    <aside class="notes">
+                      Must translate the x-axis by the amount specified
+                      in "detector_trans" in order to correct axes,
+                      otherwise, data will be shifted by the translation.
+                    </aside>
                 </section>
                 <section>
                     <h2>Graphing Capabilities</h2>
@@ -335,7 +355,8 @@ data.plot()
                 </section>
                 <section>
                     <h2>Method 2: Center of Mass formula</h2>
-                    <p>$$\vec{p} =  \frac{\sum\nolimits_{i} \sum\nolimits_{j} I_{ij} \vec {d_{ij}}}{\sum\nolimits_{i} \sum\nolimits_{j} I_{ij}}$$
+                    <p>$$\vec{p} =  \frac{\sum\nolimits_{i} \sum\nolimits_{j} I_{ij}
+                      \vec {d_{ij}}}{\sum\nolimits_{i} \sum\nolimits_{j} I_{ij}}$$
                     </p>
                     <ul>
                       <li>Mantid method</li>
@@ -479,12 +500,17 @@ data.plot()
                         </ul>
 
                         <aside class ="notes">Took a spline of the data on
-                        that line, and then fit the Gaussian.</aside>
+                        that line, and then fit the first Gaussian based on
+                        where dip is.
+                        <li>
+                          Fit second Gaussian at first gaussian + 180
+                        </li>
+                      </aside>
 
                         <img src="img/double_gaussian.png">
                         <img src="img/double_cross.png">
                     </section>
-                    <section data-markdown>
+                    <section data-markdown data-notes="^Note:">
                         <script type="text/template">
                               ##Numba
                               * A simple way to improve speed on "for" loops
@@ -517,6 +543,11 @@ data.plot()
                                 Time jit:      0.005 sec
                                 Time jit:      0.005 sec
                                 ```
+
+
+                                Note: Numba increases speed of for loops. Didn't
+                                work well here because data is only 192x256, but
+                                should be more effective with EQ-SANS data.
                         </script>
 
                       </section>
@@ -568,13 +599,17 @@ data.plot()
                 </section>
 
 
-
             <section>
               <h2> Special Thanks </h2>
               <ul>
                 <li class="fragment">Ricardo Leal</li>
                 <li class="fragment">Thomas Proffen</li>
               </ul>
+              <aside class="notes">
+                <li>
+                  Dr. Proffen for giving me the opportunity to speak today
+                </li>
+              </aside>
             </section>
 
             <section>
