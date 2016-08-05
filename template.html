@@ -150,8 +150,12 @@
                           <li>
                             First, talk about parser.
                           </li>
+
                           <li>
                             Beam Finder, Sensitivity Correction
+                          </li>
+                          <li>
+                            Sensitivity Correction: corrects for detector features
                           </li>
                           <li>
                             Anisotropic SANS Refinement: process and numba
@@ -193,11 +197,17 @@
                       detector_data = np.array(p.xpath_get("/SPICErack/Data/Detector/data"))
 
                       # returns 2d array of detector data
+
+                      units = p.xpath_get("/SPICErack/Header/y_mm_per_pixel/units")
+                      # returns attribute value: "mm"
                       ```
 
 
                         Note: XPath can easily search through the XML file and
                         "grab" the value in the desired data field
+                         - Also can get attributes
+                         - Had to parse through numbers, eliminate spaces, and turn
+                         them into an array
                     </script>
                 </section>
 
@@ -280,7 +290,10 @@ data.plot()
                     <aside class="notes">
                       Must translate the x-axis by the amount specified
                       in "detector_trans" in order to correct axes,
-                      otherwise, data will be shifted by the translation.
+                      otherwise, data will be shifted.
+                      <li>
+                        Emphasize doing this before finding beam center
+                      </li>
                     </aside>
                 </section>
                 <section>
@@ -308,7 +321,10 @@ data.plot()
                         <li>
                           Plotly graph can be save as a div or as an html file
                         </li>
-
+                        <li>
+                          Emphasize intensity in raw data gives users a good
+                          idea.
+                        </li>
                       </aside>
                 </section>
 
@@ -333,7 +349,7 @@ data.plot()
                 <aside class="notes">
                   <ul>
                     <li>Integrated in the web data reduction</li>
-                    <li>Will give users overview of raw intensity</li>
+                    <li>Will give users good overview of raw intensity</li>
                   </ul>
                 </aside>
             </section>
@@ -456,7 +472,12 @@ data.plot()
                         <img src="img/corrected.png">
                         <aside class="notes">Image to the right much smoother
                         and lacks the vertical pattern seen in the image on
-                      the left. Defined center</aside>
+                      the left. Defined center
+                      <li>
+                        image on right will be used to find beam center
+                      </li>
+                    </aside>
+
                     </section>
                     <section>
                           <h2>Compare and Contrast</h2>
@@ -486,7 +507,8 @@ data.plot()
                     </ul>
                     <img src="img/anisotropy.png">
                     <aside class="notes">
-
+                      Scientists were finding the angle by hand and needed an
+                      automated script that found the wedge angle.
                     </aside>
                   </section>
                     <section>
@@ -507,7 +529,6 @@ data.plot()
                           </li>
                         </ul>
                         <img src="img/sector_averages.png">
-                        <!-- Label axes or talk about them in the presentation-->
                     </section>
                     <section>
                         <h2>Finding angles</h2>
@@ -618,7 +639,11 @@ data.plot()
                               </ul>
                             </li>
                           </ul>
-
+                          <aside class="notes">
+                            talk about how you implemented tests in Python
+                            during your summer internship and tested
+                            speed.
+                          </aside>
                         </section>
                 </section>
 
